@@ -1,0 +1,9 @@
+danish_democracy_data:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: 'file_path/database_name.duckdb'
+      extensions:
+        - httpfs
+        - parquet
