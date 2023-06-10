@@ -6,5 +6,6 @@ logs/
 .user.yml
 venv/
 env/
+.dbtenv/
 **/*.duckdb
 **/*.duckdb.wal
