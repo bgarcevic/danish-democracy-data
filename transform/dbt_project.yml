@@ -33,7 +33,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   danish_democracy_data:
     # Config indicated by + and applies to all files under models/example/
-    materialized: table
     staging:
+      materialized: view
+    intermediate:
+      materialized: view
+    mart:
       materialized: view
     
