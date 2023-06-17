@@ -62,10 +62,8 @@ def retrieve_data(api_url, folder_path, base_file_name):
     except: # handle other exceptions such as attribute errors
         print("Unexpected error:", sys.exc_info()[0])
 
-# Call the function
-retrieve_data('API_URL', 'YOUR_FOLDER_PATH', 'YOUR_FILE_NAME')
 
-api_url = 'https://api.example.com/v1/data?$skip=0'
+file_name = 'Afstemning'
+api_url = f'https://oda.ft.dk/api/{file_name}?$inlinecount=allpages'
 folder_path = '../data/'
-file_name = 'afstemning'
 retrieve_data(api_url, folder_path, file_name)
