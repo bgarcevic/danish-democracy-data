@@ -54,7 +54,7 @@ def retrieve_data(api_url, base_file_name):
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Go up one level and then into the 'data' directory
-    data_dir = os.path.join(script_dir, '..', 'data')
+    data_dir = os.path.join(script_dir, '..', f'data/{base_file_name}')
 
     # Get the full path to the file
     file_path = os.path.join(data_dir, filename)
