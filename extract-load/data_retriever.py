@@ -4,13 +4,7 @@ import json
 import sys
 from datetime import datetime
 
-import requests
-import os
-import json
-import sys
-from datetime import datetime
-
-def retrieve_data(api_url, folder_path, base_file_name):
+def retrieve_data(api_url, base_file_name):
     all_data = []
 
     # Loop until all pages have been retrieved
@@ -42,13 +36,22 @@ def retrieve_data(api_url, folder_path, base_file_name):
             api_url = response.json().get('odata.nextLink', None)
 
     # Get the current date and format it as a string
-    date_string = datetime.now().strftime('%Y_%m_%d')
+    date_string = datetime.now().strftime('%Y%m%d')
 
     # Create a filename with the date
     filename = f'{base_file_name}_{date_string}'
 
+    # Get the directory that this script is in
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Go up one level and then into the 'data' directory
+    data_dir = os.path.join(script_dir, '..', 'data')
+
     # Get the full path to the file
-    file_path = os.path.join(folder_path, filename)
+    file_path = os.path.join(data_dir, filename)
+
+    # Check if directory exists, create it if it doesn't
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
     try:
         # Save the data to a file
@@ -65,5 +68,6 @@ def retrieve_data(api_url, folder_path, base_file_name):
 
 file_name = 'Afstemning'
 api_url = f'https://oda.ft.dk/api/{file_name}?$inlinecount=allpages'
-folder_path = '../data/'
-retrieve_data(api_url, folder_path, file_name)
+
+
+retrieve_data(api_url, file_name)
