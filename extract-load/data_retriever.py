@@ -7,10 +7,14 @@ from datetime import datetime
 def retrieve_data(api_url, base_file_name):
     all_data = []
 
+    # Initialize a counter for the number of items retrieved
+    items_retrieved = 0
+
     # Loop until all pages have been retrieved
     while api_url is not None:
         try:
             # Request data from the API
+            print(f"Sending request to {api_url}...")
             response = requests.get(api_url, timeout=10)
 
             # Raise an exception if the request was unsuccessful
@@ -30,7 +34,12 @@ def retrieve_data(api_url, base_file_name):
             break
         else:
             # Add data to all_data list
-            all_data.extend(response.json()["value"])
+            data = response.json()["value"]
+            all_data.extend(data)
+
+            # Print out the number of items retrieved
+            items_retrieved += len(data)
+            print(f"Retrieved {items_retrieved} items so far...")
 
             # Update the API URL for the next iteration
             api_url = response.json().get('odata.nextLink', None)
