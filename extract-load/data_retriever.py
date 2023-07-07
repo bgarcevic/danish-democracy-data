@@ -47,14 +47,16 @@ def retrieve_data(api_url, base_file_name):
     # Get the current date and format it as a string
     date_string = datetime.now().strftime('%Y%m%d')
 
+    base_file_name_lower = base_file_name.lower()
+
     # Create a filename with the date
-    filename = f'{base_file_name}_{date_string}'
+    filename = f'{base_file_name_lower}_{date_string}'
 
     # Get the directory that this script is in
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Go up one level and then into the 'data' directory
-    data_dir = os.path.join(script_dir, '..', f'data/{base_file_name.toLowerCase()}')
+    data_dir = os.path.join(script_dir, '..', f'data/{base_file_name_lower}')
 
     # Get the full path to the file
     file_path = os.path.join(data_dir, filename)
@@ -75,8 +77,10 @@ def retrieve_data(api_url, base_file_name):
         print("Unexpected error:", sys.exc_info()[0])
 
 
-file_name = 'Afstemning'
-api_url = f'https://oda.ft.dk/api/{file_name}?$inlinecount=allpages'
+# add python main file check
+if __name__ == "__main__":        
+    file_name = 'Afstemning'
+    api_url = f'https://oda.ft.dk/api/{file_name}?$inlinecount=allpages'
 
 
-retrieve_data(api_url, file_name)
+    retrieve_data(api_url, file_name)
