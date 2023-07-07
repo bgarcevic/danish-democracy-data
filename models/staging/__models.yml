@@ -21,14 +21,15 @@ models:
     description: A meeting is a meeting of the Folketing plenum ('Meeting in the hall') or a committee ('Committee meeting'), see Meeting type.
     columns:
       - name: meeting_id
-        description: The unique key for each voting type.
+        description: The unique key for each meeting.
         tests:
           - not_null
           - unique
   - name: stg_case_steps
     description: A Case Step is an activity in relation to a Case. A case can be associated with several case steps in a business-specific process.
+    columns:
       - name: case_step_id
-        description: The unique key for each voting type.
+        description: The unique key for each case step.
         tests:
           - not_null
           - unique
@@ -36,7 +37,7 @@ models:
     description: Vote expresses a member's position (for, against, neither for nor against) on a given matter that is the subject of a vote.
     columns:
       - name: individual_vote_id
-        description: The unique key for each voting type.
+        description: The unique key for each individual vote.
         tests:
           - not_null
           - unique

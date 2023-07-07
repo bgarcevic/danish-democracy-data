@@ -13,7 +13,7 @@ renamed as (
         folketingstidendesidenummer as danish_parliament_page_number,
         folketingstidendeurl as danish_parliament_url,
         opdateringsdato as updated_at,
-        sagsid as case_id,
+        sagid as case_id,
         statusid as status_id,
         titel as title,
         typeid as type_id,
