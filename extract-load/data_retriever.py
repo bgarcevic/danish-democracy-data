@@ -50,13 +50,13 @@ def retrieve_data(api_url, base_file_name, file_type='json'):
     base_file_name_lower = base_file_name.lower()
 
     # Create a filename with the date
-    filename = f'{base_file_name_lower}_{date_string}'
+    filename = f'{base_file_name_lower}_{date_string}.{file_type}'
 
     # Get the directory that this script is in
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Go up one level and then into the 'data' directory
-    data_dir = os.path.join(script_dir, '..', f'data/{base_file_name_lower}.{file_type}')
+    data_dir = os.path.join(script_dir, '..', f'data/{base_file_name_lower}')
 
     # Get the full path to the file
     file_path = os.path.join(data_dir, filename)

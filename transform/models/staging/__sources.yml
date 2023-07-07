@@ -1,0 +1,12 @@
+
+version: 2
+
+sources:
+  - name: danish_parliament
+    schema: "{{ env_var('DANISH_PARLIAMENT_RAW', 'danish_parliament_raw') }}"
+    description: Data from the danish parliament
+    meta:
+      external_location: "read_json_auto('../data/afstemning/*.json', filename=True)"
+    tables:
+    - name: raw_afstemning
+      description: One record per vote in the danish parliament
