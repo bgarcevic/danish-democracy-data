@@ -7,19 +7,27 @@
     Try changing "table" to "view" below
 */
 
-{{ config(materialized='table') }}
+with 
 
-with source_data as (
+source as (
 
-    select 1 as id
+    select * from {{ source('danish_parliament', 'raw_afstemning') }}
 
+),
+
+renamed as (
+    select 
+        id as vote_id,
+        nummer as vote_number,
+        konklusion as conclusion,
+        vedtaget as approved,
+        kommentar as comment,
+        mødeid as meeting_id,
+        typeid as type_id,
+        sagsstrinid as case_step_id,
+        opdateringsdato as updated_at,
+        filename as file_name
+    from source 
 )
 
-select *
-from source_data
-
-/*
-    Uncomment the line below to remove records with null `id` values
-*/
-
--- where id is not null
+select * from renamed
