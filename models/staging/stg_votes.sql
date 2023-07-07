@@ -1,4 +1,4 @@
-with 
+with
 
 source as (
 
@@ -7,18 +7,18 @@ source as (
 ),
 
 renamed as (
-    select 
+    select
         id as vote_id,
         nummer as vote_number,
         konklusion as conclusion,
         vedtaget as approved,
         kommentar as comment,
-        mødeid as meeting_id,
+        "mødeid" as meeting_id,
         typeid as type_id,
-        sagsstrinid as case_step_id,
+        sagstrinid as case_step_id,
         opdateringsdato as updated_at,
         filename as file_name
-    from source 
+    from source
 )
 
 select * from renamed
