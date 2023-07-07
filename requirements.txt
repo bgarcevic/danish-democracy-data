@@ -6,12 +6,15 @@ certifi==2023.5.7
 cffi==1.15.1
 chardet==5.1.0
 charset-normalizer==3.1.0
+cli-helpers==2.3.0
 click==8.1.3
 colorama==0.4.6
+configobj==5.0.8
 dbt-core==1.5.1
-dbt-duckdb==1.5.1
+dbt-duckdb==1.5.2
 dbt-extractor==0.4.1
 diff-cover==7.5.0
+duckcli==0.2.1
 duckdb==0.8.0
 future==0.18.3
 hologram==0.0.16
@@ -31,6 +34,7 @@ packaging==23.1
 parsedatetime==2.4
 pathspec==0.11.1
 pluggy==1.0.0
+prompt-toolkit==3.0.38
 protobuf==4.23.2
 pycparser==2.21
 Pygments==2.15.1
@@ -46,9 +50,11 @@ requests==2.31.0
 six==1.16.0
 sqlfluff==2.1.1
 sqlparse==0.4.3
+tabulate==0.9.0
 tblib==1.7.0
 text-unidecode==1.3
 tqdm==4.65.0
 typing_extensions==4.6.3
 urllib3==2.0.3
+wcwidth==0.2.6
 Werkzeug==2.3.6
