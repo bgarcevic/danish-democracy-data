@@ -5,7 +5,39 @@ models:
     description: Voting data with individual votes, including notation of whether a proposal has been adopted or rejected. Please note that error registrations etc. can be seen from the voting comment. 1 row per vote
     columns:
       - name: vote_id
-        description: The unique key for each customer.
+        description: The unique key for each vote.
         tests:
           - not_null
           - unique
+  - name: stg_voting_types
+    description: Type of vote, one row per voting type
+    columns:
+      - name: voting_type_id
+        description: The unique key for each voting type.
+        tests:
+          - not_null
+          - unique
+  - name: stg_meetings
+    description: A meeting is a meeting of the Folketing plenum ('Meeting in the hall') or a committee ('Committee meeting'), see Meeting type.
+    columns:
+      - name: meeting_id
+        description: The unique key for each voting type.
+        tests:
+          - not_null
+          - unique
+  - name: stg_case_steps
+    description: A Case Step is an activity in relation to a Case. A case can be associated with several case steps in a business-specific process.
+      - name: case_step_id
+        description: The unique key for each voting type.
+        tests:
+          - not_null
+          - unique
+  - name: stg_individual_votes
+    description: Vote expresses a member's position (for, against, neither for nor against) on a given matter that is the subject of a vote.
+    columns:
+      - name: individual_vote_id
+        description: The unique key for each voting type.
+        tests:
+          - not_null
+          - unique
+          

@@ -79,8 +79,8 @@ def retrieve_data(api_url, base_file_name, file_type='json'):
 
 # add python main file check
 if __name__ == "__main__":        
-    file_name = 'Afstemning'
-    api_url = f'https://oda.ft.dk/api/{file_name}?$inlinecount=allpages'
-
-
-    retrieve_data(api_url, file_name)
+    file_names = ['Afstemning', 'Afstemningstype', 'Møde', 'Sagstrin', 'Stemme']
+    
+    for file_name in file_names:
+        api_url = f'https://oda.ft.dk/api/{file_name}?$inlinecount=allpages'
+        retrieve_data(api_url, file_name)
