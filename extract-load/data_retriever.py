@@ -4,7 +4,7 @@ import json
 import sys
 from datetime import datetime
 
-def retrieve_data(api_url, base_file_name):
+def retrieve_data(api_url, base_file_name, file_type='json'):
     all_data = []
 
     # Initialize a counter for the number of items retrieved
@@ -56,7 +56,7 @@ def retrieve_data(api_url, base_file_name):
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Go up one level and then into the 'data' directory
-    data_dir = os.path.join(script_dir, '..', f'data/{base_file_name_lower}')
+    data_dir = os.path.join(script_dir, '..', f'data/{base_file_name_lower}.{file_type}')
 
     # Get the full path to the file
     file_path = os.path.join(data_dir, filename)
