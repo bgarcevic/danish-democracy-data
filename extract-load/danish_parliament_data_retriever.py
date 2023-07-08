@@ -2,6 +2,7 @@ import requests
 import os
 import json
 import sys
+import concurrent.futures
 from datetime import datetime
 
 def retrieve_data(api_url, base_file_name, file_type='json'):
@@ -79,8 +80,10 @@ def retrieve_data(api_url, base_file_name, file_type='json'):
 
 # add python main file check
 if __name__ == "__main__":        
-    file_names = ['Afstemning', 'Afstemningstype', 'Møde', 'Sagstrin', 'Stemme']
-    
-    for file_name in file_names:
-        api_url = f'https://oda.ft.dk/api/{file_name}?$inlinecount=allpages'
-        retrieve_data(api_url, file_name)
+    file_names = ['Afstemning', 'Afstemningstype', 'Møde', 'Sagstrin', 'Stemme', "Stemmetype"]
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+        for file_name in file_names:
+            api_url = f'https://oda.ft.dk/api/{file_name}?$inlinecount=allpages'
+
+            # Submit a new task to the executor
+            executor.submit(retrieve_data, api_url, file_name)

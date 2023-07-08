@@ -9,7 +9,7 @@ source as (
 renamed as (
     select
         id as individual_vote_id,
-        afstemningsid as vote_id,
+        afstemningid as vote_id,
         aktørid as actor_id,
         opdateringsdato as updated_at,
         typeid as type_id,

@@ -27,3 +27,7 @@ sources:
       description: One record per individual vote in the danish parliament
       meta:
         external_location: "read_json_auto('./data/stemme/*.json', filename=True)"
+    - name: raw_stemme_type
+      description: One record per individual voting type in the danish parliament
+      meta:
+        external_location: "read_json_auto('./data/stemmetype/*.json', filename=True)"
