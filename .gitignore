@@ -9,3 +9,4 @@ env/
 .dbtenv/
 **/*.duckdb
 **/*.duckdb.wal
+data/

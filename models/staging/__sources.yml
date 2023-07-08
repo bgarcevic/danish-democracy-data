@@ -1,0 +1,29 @@
+
+version: 2
+
+sources:
+  - name: danish_parliament
+    schema: "{{ env_var('DANISH_PARLIAMENT_RAW', 'danish_parliament_raw') }}"
+    description: Data from the danish parliament
+
+    tables:
+    - name: raw_afstemning
+      description: One record per party vote in the danish parliament
+      meta:
+        external_location: "read_json_auto('./data/afstemning/*.json', filename=True)"
+    - name: raw_afstemningstype
+      description: One record per voting type in the danish parliament
+      meta:
+        external_location: "read_json_auto('./data/afstemningstype/*.json', filename=True)"
+    - name: raw_møde
+      description: One record per meeting in the danish parliament
+      meta:
+        external_location: "read_json_auto('./data/møde/*.json', filename=True)"
+    - name: raw_sagstrin
+      description: One record per case step in the danish parliament
+      meta:
+        external_location: "read_json_auto('./data/sagstrin/*.json', filename=True)"
+    - name: raw_stemme
+      description: One record per individual vote in the danish parliament
+      meta:
+        external_location: "read_json_auto('./data/stemme/*.json', filename=True)"
