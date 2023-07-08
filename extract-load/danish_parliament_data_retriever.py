@@ -78,11 +78,11 @@ def construct_file_path(base_file_name, file_type='json', is_timestamp_file=Fals
     return file_path
 
 
-def save_data(all_data, file_path):
+def save_data(data, file_path):
     try:
         # Save the data to a file
         with open(file_path, 'w') as file:
-            json.dump(all_data, file)
+            json.dump(data, file)
 
         print(f"Data saved to {file_path}")
 
