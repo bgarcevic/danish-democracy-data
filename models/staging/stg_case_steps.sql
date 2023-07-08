@@ -17,7 +17,6 @@ renamed as (
         statusid as status_id,
         titel as title,
         typeid as type_id,
-        type as type,
         filename as file_name
     from source
 )
