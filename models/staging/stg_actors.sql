@@ -9,8 +9,8 @@ source as (
 renamed as (
 
     select
-        id as member_id,
-        typeid as member_type_id,
+        id as actor_id,
+        typeid as actor_type_id,
         gruppenavnkort as group_short_name,
         navn as full_name,
         fornavn as first_name,
@@ -28,20 +28,19 @@ renamed as (
             - position('<sex>' in biografi)
             - length('<sex>')
         ) as gender,
-        substring(
+        try_strptime(substring(
             biografi,
             position('<born>' in biografi) + length('<born>'),
             position('</born>' in biografi)
             - position('<born>' in biografi)
             - length('<born>')
-        ) as birth_date,
-        substring(
-            biografi,
-            position('<died>' in biografi) + length('<died>'),
+        ), '%d-%m-%Y') as birth_date,
+        try_strptime(substring(
+            biografi, position('<died>' in biografi) + length('<died>'),
             position('</died>' in biografi)
             - position('<died>' in biografi)
             - length('<died>')
-        ) as death_date,
+        ), '%d-%m-%Y') as death_date,
         substring(
             biografi,
             position('<party>' in biografi) + length('<party>'),

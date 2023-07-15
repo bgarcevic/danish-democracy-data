@@ -1,1 +1,1 @@
-select * from {{ ref('stg_members') }}
+select * from {{ ref('stg_actors') }}

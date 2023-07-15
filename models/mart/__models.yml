@@ -4,7 +4,7 @@ models:
   - name: members
     description: Members of the Danish Parliament
     columns:
-      - name: member_id
+      - name: actor_id
         description: The unique key for each member.
         tests:
           - not_null
