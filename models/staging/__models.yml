@@ -53,15 +53,15 @@ models:
     description: Actors of the Danish Parliament
     columns:
       - name: actor_id
-        description: The unique key for each member.
+        description: The unique key for each actor.
         tests:
           - not_null
           - unique
   - name: stg_actor_types
     description: Members of the Danish Parliament
     columns:
-      - name: member_id
-        description: The unique key for each member.
+      - name: actor_type_id
+        description: The unique key for each actor type.
         tests:
           - not_null
           - unique

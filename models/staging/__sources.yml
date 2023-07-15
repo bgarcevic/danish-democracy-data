@@ -38,4 +38,4 @@ sources:
     - name: raw_aktoer_type
       description: One record per member type in the danish parliament
       meta:
-        external_location: "read_json_auto('./data/aktør/aktørtype_*.json', filename=True)"
+        external_location: "read_json_auto('./data/aktørtype/aktørtype_*.json', filename=True)"
