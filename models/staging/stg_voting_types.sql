@@ -10,7 +10,7 @@ renamed as (
     select
         id as voting_type_id,
         opdateringsdato as updated_at,
-        type as type,
+        type as voting_type,
         filename as file_name
     from source
 )

@@ -14,7 +14,7 @@ renamed as (
         vedtaget as approved,
         kommentar as comment,
         "mødeid" as meeting_id,
-        typeid as type_id,
+        typeid as voting_type_id,
         sagstrinid as case_step_id,
         opdateringsdato as updated_at,
         filename as file_name

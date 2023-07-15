@@ -31,7 +31,7 @@ sources:
       description: One record per individual voting type in the danish parliament
       meta:
         external_location: "read_json_auto('./data/stemmetype/stemmetype_*.json', filename=True)"
-    - name: raw_aktør
+    - name: raw_aktoer
       description: One record per member in the danish parliament
       meta:
         external_location: "read_json_auto('./data/aktør/aktør_*.json', filename=True)"
