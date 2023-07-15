@@ -64,7 +64,7 @@ def construct_file_path(base_file_name, file_type='json', is_timestamp_file=Fals
 
     if is_timestamp_file:
         # Create a filename for the timestamp file
-        filename = f'{base_file_name_lower}_last_run.json'
+        filename = f'last_run_{base_file_name_lower}.json'
     else:
         # Create a filename with the date
         filename = f'{base_file_name_lower}_{date_string}.{file_type}'

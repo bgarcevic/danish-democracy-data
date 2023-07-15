@@ -49,4 +49,12 @@ models:
         tests:
           - not_null
           - unique
+  - name: stg_members
+    description: Members of the Danish Parliament
+    columns:
+      - name: member_id
+        description: The unique key for each member.
+        tests:
+          - not_null
+          - unique
           

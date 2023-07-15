@@ -10,24 +10,28 @@ sources:
     - name: raw_afstemning
       description: One record per party vote in the danish parliament
       meta:
-        external_location: "read_json_auto('./data/afstemning/*.json', filename=True)"
+        external_location: "read_json_auto('./data/afstemning/afstemning_*.json', filename=True)"
     - name: raw_afstemningstype
       description: One record per voting type in the danish parliament
       meta:
-        external_location: "read_json_auto('./data/afstemningstype/*.json', filename=True)"
+        external_location: "read_json_auto('./data/afstemningstype/afstemningstype_*.json', filename=True)"
     - name: raw_møde
       description: One record per meeting in the danish parliament
       meta:
-        external_location: "read_json_auto('./data/møde/*.json', filename=True)"
+        external_location: "read_json_auto('./data/møde/møde_*.json', filename=True)"
     - name: raw_sagstrin
       description: One record per case step in the danish parliament
       meta:
-        external_location: "read_json_auto('./data/sagstrin/*.json', filename=True)"
+        external_location: "read_json_auto('./data/sagstrin/sagstrin_*.json', filename=True)"
     - name: raw_stemme
       description: One record per individual vote in the danish parliament
       meta:
-        external_location: "read_json_auto('./data/stemme/*.json', filename=True)"
+        external_location: "read_json_auto('./data/stemme/stemme_*.json', filename=True)"
     - name: raw_stemme_type
       description: One record per individual voting type in the danish parliament
       meta:
-        external_location: "read_json_auto('./data/stemmetype/*.json', filename=True)"
+        external_location: "read_json_auto('./data/stemmetype/stemmetype_*.json', filename=True)"
+    - name: raw_aktør
+      description: One record per member in the danish parliament
+      meta:
+        external_location: "read_json_auto('./data/aktør/aktør_*.json', filename=True)"

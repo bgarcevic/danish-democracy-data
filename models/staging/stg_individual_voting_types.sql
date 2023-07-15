@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('danish_parliament', 'raw_stemmetype') }}
+    select * from {{ source('danish_parliament', 'raw_stemme_type') }}
 
 ),
 
