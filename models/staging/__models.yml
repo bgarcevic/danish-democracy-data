@@ -41,4 +41,28 @@ models:
         tests:
           - not_null
           - unique
+  - name: stg_individual_voting_types
+    description: Voting types expresses a member's position (for, against, neither for nor against) from a number to a string
+    columns:
+      - name: individual_voting_type_id
+        description: The unique key for each individual vote.
+        tests:
+          - not_null
+          - unique
+  - name: stg_actors
+    description: Actors of the Danish Parliament
+    columns:
+      - name: actor_id
+        description: The unique key for each actor.
+        tests:
+          - not_null
+          - unique
+  - name: stg_actor_types
+    description: Members of the Danish Parliament
+    columns:
+      - name: actor_type_id
+        description: The unique key for each actor type.
+        tests:
+          - not_null
+          - unique
           

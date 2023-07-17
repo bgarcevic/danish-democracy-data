@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: members
+    description: Members of the Danish Parliament
+    columns:
+      - name: actor_id
+        description: The unique key for each member.
+        tests:
+          - not_null
+          - unique
+  - name: individual_votes
+    description: Votes expresses a member's position (for, against, neither for nor against) on a given matter that is the subject of a vote.
+    columns:
+      - name: individual_vote_sk
+        description: The unique key for each individual_vote.
+        tests:
+          - not_null
+          - unique
