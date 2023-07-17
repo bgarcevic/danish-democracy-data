@@ -1,10 +1,10 @@
 version: 2
 
 models:
-  - name: members
-    description: Members of the Danish Parliament
+  - name: actors
+    description: Actors of the Danish Parliament
     columns:
-      - name: actor_id
+      - name: actor_sk
         description: The unique key for each member.
         tests:
           - not_null

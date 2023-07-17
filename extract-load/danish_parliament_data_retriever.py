@@ -84,8 +84,8 @@ def construct_file_path(base_file_name, file_type="json", is_timestamp_file=Fals
 def save_data(data, file_path):
     try:
         # Save the data to a file
-        with open(file_path, "w") as file:
-            json.dump(data, file)
+        with open(file_path, "w", encoding='utf8') as file:
+            json.dump(data, file, ensure_ascii=False)
 
         print(f"Data saved to {file_path}")
 
