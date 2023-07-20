@@ -113,11 +113,13 @@ if __name__ == "__main__":
         "Afstemning",
         "Afstemningstype",
         "Møde",
+        "Mødestatus",
+        "Mødetype",
         "Sagstrin",
         "Stemme",
         "Stemmetype",
         "Aktør",
-        "Aktørtype",
+        "Aktørtype"
     ]
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
         for file_name in file_names:
