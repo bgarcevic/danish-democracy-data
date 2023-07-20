@@ -8,6 +8,14 @@ meetings_source as (
     select * from {{ ref('stg_meetings') }}
 ), 
 
+meeting_types_source as (
+    select * from {{ ref('stg_meeting_types') }}
+),
+
+meeting_status_source as (
+    select * from {{ ref('stg_meeting_statuses') }}
+),
+
 voting_types_source as (
     select * from {{ ref('stg_voting_types') }}
 ),

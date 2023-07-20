@@ -25,6 +25,22 @@ models:
         tests:
           - not_null
           - unique
+  - name: stg_meeting_types
+    description: The types of a meeting, one row per meeting type
+    columns:
+      - name: meeting_type_id
+        description: The unique key for each meeting type.
+        tests:
+          - not_null
+          - unique
+  - name: stg_meeting_statuses
+    description: The status of a meeting, one row per meeting status
+    columns:
+      - name: meeting_status_id
+        description: The unique key for each meeting status.
+        tests:
+          - not_null
+          - unique
   - name: stg_case_steps
     description: A Case Step is an activity in relation to a Case. A case can be associated with several case steps in a business-specific process.
     columns:
