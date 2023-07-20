@@ -19,6 +19,14 @@ sources:
       description: One record per meeting in the danish parliament
       meta:
         external_location: "read_json_auto('./data/møde/møde_*.json', filename=True)"
+    - name: raw_møde_status
+      description: One record per meeting in the danish parliament status
+      meta:
+        external_location: "read_json_auto('./data/mødestatus/mødestatus_*.json', filename=True)"
+    - name: raw_møde_type
+      description: One record per meeting type
+      meta:
+        external_location: "read_json_auto('./data/mødetype/mødetype_*.json', filename=True)"
     - name: raw_sagstrin
       description: One record per case step in the danish parliament
       meta:
