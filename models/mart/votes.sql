@@ -1,51 +1,19 @@
 with
 
 votes_source as (
-    select {{ 
-        dbt_utils.star(
-            from=ref('stg_votes'), 
-            except=[ 
-                'file_name'
-            ]
-        )
-    }}
-    from {{ ref('stg_votes') }}
+    select * from {{ ref('stg_votes') }}
 ), 
 
 meetings_source as (
-    select {{ 
-        dbt_utils.star(
-            from=ref('stg_meetings'), 
-            except=[ 
-                'file_name'
-            ]
-        )
-    }}
-    from {{ ref('stg_meetings') }}
+    select * from {{ ref('stg_meetings') }}
 ), 
 
 voting_types_source as (
-    select {{ 
-        dbt_utils.star(
-            from=ref('stg_voting_types'), 
-            except=[ 
-                'file_name'
-            ]
-        )
-    }}
-    from {{ ref('stg_voting_types') }}
+    select * from {{ ref('stg_voting_types') }}
 ),
 
 case_steps_source as (
-    select {{ 
-        dbt_utils.star(
-            from=ref('stg_case_steps'), 
-            except=[ 
-                'file_name'
-            ]
-        )
-    }}
-    from {{ ref('stg_case_steps') }}
+    select * from {{ ref('stg_case_steps') }}
 ),
 
 final as (
