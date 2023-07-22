@@ -63,7 +63,7 @@ def construct_file_path(base_file_name, file_type="json", is_timestamp_file=Fals
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Go up one level and then into the 'data' directory
-    data_dir = os.path.join(script_dir, "..", f"data/{base_file_name_lower}")
+    data_dir = os.path.join(script_dir, "..", f"data/raw/{base_file_name_lower}")
 
     if is_timestamp_file:
         # Create a filename for the timestamp file

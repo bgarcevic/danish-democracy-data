@@ -3,7 +3,8 @@ danish_democracy_data:
   outputs:
     dev:
       type: duckdb
-      path: 'danish_democracy_data.duckdb'
+      path: 'data/danish_democracy_data.duckdb'
       extensions:
         - httpfs
         - parquet
+      external_root: 'data/curated'
