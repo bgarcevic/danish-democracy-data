@@ -1,31 +1,11 @@
 with
 
 actors_source as (
-    select {{ 
-        dbt_utils.star(
-            from=ref('stg_actors'), 
-            except=[
-                'first_name', 
-                'last_name', 
-                'biography', 
-                'file_name', 
-                'valid_from', 
-                'valid_to', 
-                'period_id'
-            ]
-        )
-    }}
-    from {{ ref('stg_actors') }}
+    select * from {{ ref('stg_actors') }}
 ),
 
 actor_types_source as (
-    select {{ 
-        dbt_utils.star(
-            from=ref('stg_actor_types'), 
-            except=['file_name']
-        )
-    }}
-    from {{ ref('stg_actor_types') }}
+    select * from {{ ref('stg_actor_types') }}
 ),
 
 final as (
