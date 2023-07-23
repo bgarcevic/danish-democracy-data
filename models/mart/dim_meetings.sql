@@ -2,7 +2,7 @@ with
 
 meetings_source as (
     select * from {{ ref('stg_meetings') }}
-), 
+),
 
 meeting_types_source as (
     select * from {{ ref('stg_meeting_types') }}
@@ -13,7 +13,7 @@ meeting_status_source as (
 ),
 
 meetings as (
-    select 
+    select
         meetings_source.meeting_id as meeting_sk,
         meetings_source.meeting_date,
         meetings_source.meeting_room,
@@ -27,9 +27,9 @@ meetings as (
         meetings_source.meeting_updated_at
     from meetings_source
     left join meeting_types_source
-        on meetings_source.meeting_type_id = meeting_types_source.meeting_type_id
+        on meetings_source.meeting_type_id = meeting_types_source.meeting_type_id --noqa: LT05
     left join meeting_status_source
-        on meetings_source.meeting_status_id = meeting_status_source.meeting_status_id
+        on meetings_source.meeting_status_id = meeting_status_source.meeting_status_id --noqa: LT05
 )
 
 select * from meetings

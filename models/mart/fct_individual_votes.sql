@@ -1,25 +1,41 @@
 with
 
 individual_votes_source as (
-    select {{ 
-        dbt_utils.star(
-            from=ref('stg_individual_votes'), 
-            except=['file_name']
-        )
-    }}
-    from {{ ref('stg_individual_votes') }}
+    select * from {{ ref('stg_individual_votes') }}
+),
+
+votes_source as (
+    select * from {{ ref('stg_votes') }}
 ),
 
 final as (
     select
         -- surrogate keys
-        {{ dbt_utils.generate_surrogate_key(['individual_vote_id']) }} as individual_vote_sk, --noqa: LT05
-        {{ dbt_utils.generate_surrogate_key(['vote_id']) }} as vote_sk,
-        {{ dbt_utils.generate_surrogate_key(['actor_id']) }} as actor_sk,
-        {{ dbt_utils.generate_surrogate_key(['individual_voting_type_id']) }} as individual_voting_type_sk, --noqa: LT05
+        {{ dbt_utils.generate_surrogate_key(
+                ['individual_votes_source.individual_vote_id']
+            ) 
+        }} as individual_vote_sk,
+        {{ dbt_utils.generate_surrogate_key(
+                ['individual_votes_source.vote_id']
+            ) 
+        }} as vote_sk,
+        {{ dbt_utils.generate_surrogate_key(
+                ['individual_votes_source.actor_id']
+            ) 
+        }} as actor_sk,
+        {{ dbt_utils.generate_surrogate_key(
+                ['individual_votes_source.individual_voting_type_id']
+            )
+        }} as individual_voting_type_sk,
+        {{ dbt_utils.generate_surrogate_key(
+                ['votes_source.meeting_id']
+            ) 
+        }} as meeting_sk,
         -- meta
-        individual_votes_updated_at
+        individual_votes_source.individual_votes_updated_at
     from individual_votes_source
+    left join votes_source
+        on individual_votes_source.vote_id = votes_source.vote_id
 )
 
 select * from final

@@ -16,7 +16,7 @@ actors_source as (
         )
     }}
     from {{ ref('stg_actors') }}
-), 
+),
 
 actor_types_source as (
     select {{ 

@@ -2,7 +2,7 @@ with
 
 votes_source as (
     select * from {{ ref('stg_votes') }}
-), 
+),
 
 voting_types_source as (
     select * from {{ ref('stg_voting_types') }}
@@ -27,7 +27,7 @@ final as (
         case_steps_source.status_id,
         case_steps_source.title,
         case_steps_source.type_id,
-        
+
         -- meta
         votes_source.votes_updated_at,
         voting_types_source.voting_type_updated_at,

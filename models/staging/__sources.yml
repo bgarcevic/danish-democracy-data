@@ -15,15 +15,15 @@ sources:
       description: One record per voting type in the danish parliament
       meta:
         external_location: "read_json_auto('./data/raw/afstemningstype/afstemningstype_*.json', filename=True)"
-    - name: raw_møde
+    - name: raw_moede
       description: One record per meeting in the danish parliament
       meta:
         external_location: "read_json_auto('./data/raw/møde/møde_*.json', filename=True)"
-    - name: raw_møde_status
+    - name: raw_moede_status
       description: One record per meeting in the danish parliament status
       meta:
         external_location: "read_json_auto('./data/raw/mødestatus/mødestatus_*.json', filename=True)"
-    - name: raw_møde_type
+    - name: raw_moede_type
       description: One record per meeting type
       meta:
         external_location: "read_json_auto('./data/raw/mødetype/mødetype_*.json', filename=True)"
