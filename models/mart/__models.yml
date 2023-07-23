@@ -9,6 +9,15 @@ models:
         tests:
           - not_null
           - unique
+models:
+  - name: dim_meetings
+    description: Meetings of the Danish Parliament
+    columns:
+      - name: meeting_sk
+        description: The unique key for each member.
+        tests:
+          - not_null
+          - unique
   - name: dim_votes
     description: Voting data with individual votes, including notation of whether a proposal has been adopted or rejected. Please note that error registrations etc. can be seen from the voting comment. 1 row per vote
     columns:

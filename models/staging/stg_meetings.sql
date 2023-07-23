@@ -19,7 +19,7 @@ renamed as (
         starttidsbemærkning as meeting_start_time_note,
         statusid as meeting_status_id,
         titel as meeting_title,
-        typeid as type_id,
+        typeid as meeting_type_id,
         filename as file_name
     from source
 )

@@ -18,7 +18,7 @@ final as (
         {{ dbt_utils.generate_surrogate_key(['actor_id']) }} as actor_sk,
         {{ dbt_utils.generate_surrogate_key(['individual_voting_type_id']) }} as individual_voting_type_sk, --noqa: LT05
         -- meta
-        updated_at
+        individual_votes_updated_at
     from individual_votes_source
 )
 
