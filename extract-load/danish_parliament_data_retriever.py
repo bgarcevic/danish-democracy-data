@@ -117,7 +117,7 @@ if __name__ == "__main__":
         "Møde",
         "Mødestatus",
         "Mødetype",
-        "Periode"
+        "Periode",
         "Sagstrin",
         "Stemme",
         "Stemmetype"
