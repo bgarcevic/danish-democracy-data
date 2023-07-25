@@ -10,6 +10,14 @@ models:
           - not_null
           - unique
 models:
+  - name: dim_cases
+    description: Cases of the Danish Parliament
+    columns:
+      - name: case_sk
+        description: The unique key for each case.
+        tests:
+          - not_null
+          - unique
   - name: dim_meetings
     description: Meetings of the Danish Parliament
     columns:
