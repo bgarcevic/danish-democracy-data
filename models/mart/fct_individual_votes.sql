@@ -31,6 +31,10 @@ final as (
                 ['votes_source.meeting_id']
             ) 
         }} as meeting_sk,
+        {{ dbt_utils.generate_surrogate_key(
+                ['votes_source.case_step_id']
+            ) 
+        }} as case_sk,
         -- meta
         individual_votes_source.individual_votes_updated_at
     from individual_votes_source
