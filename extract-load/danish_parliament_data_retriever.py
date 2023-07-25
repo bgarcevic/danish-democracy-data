@@ -121,10 +121,10 @@ if __name__ == "__main__":
         "Sag",
         "Sagstrin",
         "SagstrinAktør",
-        "SagstrinsStatus"
-        "SagstrinsType",
+        "Sagstrinsstatus",
+        "Sagstrinstype",
         "Stemme",
-        "Stemmetype",
+        "Stemmetype"
     ]
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
         for file_name in file_names:

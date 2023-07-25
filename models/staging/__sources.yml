@@ -38,7 +38,7 @@ sources:
     - name: raw_sag
       description: One record per case in the danish parliament
       meta:
-        external_location: "read_json_auto('./data/raw/sagstrin/sag_*.json', filename=True)"
+        external_location: "read_json_auto('./data/raw/sag/sag_*.json', filename=True)"
     - name: raw_sagstrin
       description: One record per case step in the danish parliament
       meta:
@@ -46,15 +46,15 @@ sources:
     - name: raw_sagstrinaktoer
       description: One record per case aktor interaction in the danish parliament
       meta:
-        external_location: "read_json_auto('./data/raw/sagstrin/sagstrinaktør_*.json', filename=True)"
+        external_location: "read_json_auto('./data/raw/sagstrinaktør/sagstrinaktør_*.json', filename=True)"
     - name: raw_sagstrinsstatus
       description: One record per case step status in the danish parliament
       meta:
-        external_location: "read_json_auto('./data/raw/sagstrin/sagstrinsstatus_*.json', filename=True)"
+        external_location: "read_json_auto('./data/raw/sagstrinsstatus/sagstrinsstatus_*.json', filename=True)"
     - name: raw_sagstrinstype
       description: One record per case step type in the danish parliament
       meta:
-        external_location: "read_json_auto('./data/raw/sagstrin/sagstrinsstatus_*.json', filename=True)"
+        external_location: "read_json_auto('./data/raw/sagstrinstype/sagstrinstype_*.json', filename=True)"
     - name: raw_stemme
       description: One record per individual vote in the danish parliament
       meta:
