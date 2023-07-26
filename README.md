@@ -151,3 +151,15 @@ Run SQL linter on dbt models:
 ```
 sqlfluff lint
 ```
+
+## Browsing the data
+Some options:
+- [duckcli](https://pypi.org/project/duckcli/)
+- [DuckDB CLI](https://duckdb.org/docs/installation/?environment=cli)
+- [How to set up DBeaver SQL IDE for DuckDB](https://duckdb.org/docs/guides/sql_editors/dbeaver)
+
+---
+For more information on dbt:
+- Read the [introduction to dbt](https://docs.getdbt.com/docs/introduction)
+- Read the [dbt viewpoint](https://docs.getdbt.com/docs/about/viewpoint)
+- Join the [dbt Community](http://community.getdbt.com/)
