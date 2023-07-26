@@ -10,7 +10,7 @@ renamed as (
     select
         id as case_step_status_id,
         status as case_step_status,
-        opdateringsdato as updated_at,
+        opdateringsdato as case_step_status_updated_at,
         filename as file_name,
     from source
 )
