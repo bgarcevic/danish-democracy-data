@@ -63,7 +63,7 @@ def construct_file_path(base_file_name, file_type="json", is_timestamp_file=Fals
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Go up one level and then into the 'data' directory
-    data_dir = os.path.join(script_dir, "..", f"data/{base_file_name_lower}")
+    data_dir = os.path.join(script_dir, "..", f"data/raw/{base_file_name_lower}")
 
     if is_timestamp_file:
         # Create a filename for the timestamp file
@@ -84,8 +84,8 @@ def construct_file_path(base_file_name, file_type="json", is_timestamp_file=Fals
 def save_data(data, file_path):
     try:
         # Save the data to a file
-        with open(file_path, "w") as file:
-            json.dump(data, file)
+        with open(file_path, "w", encoding='utf8') as file:
+            json.dump(data, file, ensure_ascii=False)
 
         print(f"Data saved to {file_path}")
 
@@ -112,12 +112,19 @@ if __name__ == "__main__":
     file_names = [
         "Afstemning",
         "Afstemningstype",
-        "Møde",
-        "Sagstrin",
-        "Stemme",
-        "Stemmetype",
         "Aktør",
-        "Aktørtype",
+        "Aktørtype"
+        "Møde",
+        "Mødestatus",
+        "Mødetype",
+        "Periode",
+        "Sag",
+        "Sagstrin",
+        "SagstrinAktør",
+        "Sagstrinsstatus",
+        "Sagstrinstype",
+        "Stemme",
+        "Stemmetype"
     ]
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
         for file_name in file_names:

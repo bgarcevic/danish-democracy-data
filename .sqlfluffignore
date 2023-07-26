@@ -2,3 +2,7 @@ reports
 target
 dbt_packages
 macros
+extract-load
+.dbtenv
+.vscode
+logs

@@ -12,11 +12,11 @@ renamed as (
         nummer as vote_number,
         konklusion as conclusion,
         vedtaget as approved,
-        kommentar as comment,
+        kommentar as vote_comment,
         "mødeid" as meeting_id,
         typeid as voting_type_id,
         sagstrinid as case_step_id,
-        opdateringsdato as updated_at,
+        opdateringsdato as votes_updated_at,
         filename as file_name
     from source
 )

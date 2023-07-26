@@ -9,8 +9,8 @@
     )
 }}
 
-select * from {{ source('danish_parliament', 'raw_afstemning') }}
+select * from {{ source('danish_parliament', 'raw_afstemning') }} --noqa:LT02
 
-qualify row_number() over (partition by id order by opdateringsdato desc) = 1
+qualify row_number() over (partition by id order by opdateringsdato desc) = 1 --noqa:PRS
 
 {% endsnapshot %}

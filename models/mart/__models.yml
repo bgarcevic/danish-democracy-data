@@ -1,15 +1,40 @@
 version: 2
 
 models:
-  - name: members
-    description: Members of the Danish Parliament
+  - name: dim_actors
+    description: Actors of the Danish Parliament
     columns:
-      - name: actor_id
+      - name: actor_sk
         description: The unique key for each member.
         tests:
           - not_null
           - unique
-  - name: individual_votes
+models:
+  - name: dim_cases
+    description: Cases of the Danish Parliament
+    columns:
+      - name: case_sk
+        description: The unique key for each case.
+        tests:
+          - not_null
+          - unique
+  - name: dim_meetings
+    description: Meetings of the Danish Parliament
+    columns:
+      - name: meeting_sk
+        description: The unique key for each member.
+        tests:
+          - not_null
+          - unique
+  - name: dim_votes
+    description: Voting data with individual votes, including notation of whether a proposal has been adopted or rejected. Please note that error registrations etc. can be seen from the voting comment. 1 row per vote
+    columns:
+      - name: vote_sk
+        description: The unique key for each individual_vote.
+        tests:
+          - not_null
+          - unique
+  - name: fct_individual_votes
     description: Votes expresses a member's position (for, against, neither for nor against) on a given matter that is the subject of a vote.
     columns:
       - name: individual_vote_sk

@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('danish_parliament', 'raw_møde') }}
+    select * from {{ source('danish_parliament', 'raw_moede') }}
 
 ),
 
@@ -10,16 +10,16 @@ renamed as (
     select
         id as meeting_id,
         dagsordenurl as agenda_url,
-        dato as date,
-        lokale as room,
-        nummer as number,
+        dato as meeting_date,
+        lokale as meeting_room,
+        nummer as meeting_number,
         offentlighedskode as public_code,
-        opdateringsdato as updated_at,
-        periodeid as period_id,
-        starttidsbemærkning as start_time_note,
-        statusid as status_id,
-        titel as title,
-        typeid as type_id,
+        opdateringsdato as meeting_updated_at,
+        periodeid as meeting_period_id,
+        "starttidsbemærkning" as meeting_start_time_note,
+        statusid as meeting_status_id,
+        titel as meeting_title,
+        typeid as meeting_type_id,
         filename as file_name
     from source
 )
