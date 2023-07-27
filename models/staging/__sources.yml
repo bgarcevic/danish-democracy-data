@@ -43,6 +43,11 @@ sources:
       description: One record per case in the danish parliament
       meta:
         external_location: "read_json_auto('./data/raw/sag/sag_*.json', filename=True)"
+
+    - name: raw_sagskategori
+      description: One record per case category in the danish parliament
+      meta:
+        external_location: "read_json_auto('./data/raw/sagskategori/sagskategori_*.json', filename=True)"
     - name: raw_sagstrin
       description: One record per case step in the danish parliament
       meta:
