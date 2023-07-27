@@ -59,6 +59,10 @@ sources:
       description: One record per case step type in the danish parliament
       meta:
         external_location: "read_json_auto('./data/raw/sagstrinstype/sagstrinstype_*.json', filename=True)"
+    - name: raw_sagstype
+      description: One record per case type in the danish parliament
+      meta:
+        external_location: "read_json_auto('./data/raw/sagstype/sagstype_*.json', filename=True)"
     - name: raw_stemme
       description: One record per individual vote in the danish parliament
       meta:
