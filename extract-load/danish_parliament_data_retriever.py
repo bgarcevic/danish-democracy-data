@@ -123,6 +123,9 @@ if __name__ == "__main__":
         "SagstrinAktør",
         "Sagstrinsstatus",
         "Sagstrinstype",
+        "Sagskategori",
+        "Sagsstatus",
+        "Sagstype"
         "Stemme",
         "Stemmetype"
     ]

@@ -32,7 +32,6 @@ final as (
         cases.case_number_prefix,
         cases.case_number_numeric,
         cases.case_number_postfix,
-        cases.case_voting_conclusion,
         cases.case_period_id,
         cases.case_decision_result_code,
         cases.case_state_budget,
@@ -59,3 +58,4 @@ final as (
 )
 
 select * from final
+where case_state_budget = 'true'

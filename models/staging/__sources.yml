@@ -35,6 +35,10 @@ sources:
       description: One record per meeting type
       meta:
         external_location: "read_json_auto('./data/raw/mødetype/mødetype_*.json', filename=True)"
+    - name: raw_periode
+      description: One record per period in the danish parliament
+      meta:
+        external_location: "read_json_auto('./data/raw/periode/periode_*.json', filename=True)"
     - name: raw_sag
       description: One record per case in the danish parliament
       meta:
