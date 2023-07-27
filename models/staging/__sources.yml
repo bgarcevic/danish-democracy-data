@@ -51,6 +51,10 @@ sources:
       description: One record per case aktor interaction in the danish parliament
       meta:
         external_location: "read_json_auto('./data/raw/sagstrinaktør/sagstrinaktør_*.json', filename=True)"
+    - name: raw_sagsstatus
+      description: One record per case status in the danish parliament
+      meta:
+        external_location: "read_json_auto('./data/raw/sagsstatus/sagsstatus_*.json', filename=True)"
     - name: raw_sagstrinsstatus
       description: One record per case step status in the danish parliament
       meta:
