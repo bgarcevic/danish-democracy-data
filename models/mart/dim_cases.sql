@@ -26,7 +26,7 @@ final as (
         -- attributes
         cases.case_type_id,
         cases.case_category_id,
-        case_status_id,
+        cases.case_status_id,
         cases.case_short_title,
         cases.case_number,
         cases.case_number_prefix,
@@ -50,12 +50,11 @@ final as (
         cases.case_updated_at
     from case_steps_source
     left join case_step_types_source
-        on case_steps_source.case_step_type_id = case_step_types_source.case_step_type_id
+        on case_steps_source.case_step_type_id = case_step_types_source.case_step_type_id --noqa: LT05
     left join case_step_statuses_source
-        on case_steps_source.case_step_status_id = case_step_statuses_source.case_step_status_id
+        on case_steps_source.case_step_status_id = case_step_statuses_source.case_step_status_id --noqa: LT05
     left join cases
         on case_steps_source.case_id = cases.case_id
 )
 
 select * from final
-where case_state_budget = 'true'

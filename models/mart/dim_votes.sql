@@ -22,7 +22,7 @@ final as (
 
         -- meta
         votes_source.votes_updated_at,
-        voting_types_source.voting_type_updated_at,
+        voting_types_source.voting_type_updated_at
     from votes_source
     left join voting_types_source
         on votes_source.voting_type_id = voting_types_source.voting_type_id
