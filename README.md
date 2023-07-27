@@ -1,7 +1,7 @@
 # Danish Democracy Data
 
-This repo is a personal hobby project using open source alternatives to create a data warehouse for the data of the danish parliament. 
-The API used the open api from [Folketinget API](https://oda.ft.dk/Home/WebApi) as main source
+This repo is a personal hobby project using open source alternatives to create a data warehouse for the data of the Danish parliament. 
+The API used is the open API from [Folketinget API](https://oda.ft.dk/Home/WebApi) as the primary source of data.
 
 ## Development
 
@@ -9,7 +9,7 @@ The API used the open api from [Folketinget API](https://oda.ft.dk/Home/WebApi) 
 
 ### Running this project
 
-Following commands create and activate a virtual environment and run project.
+Following commands create and activate a virtual environment and run the project.
 
 * Bash:
     ```bash
