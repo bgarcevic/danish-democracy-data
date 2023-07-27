@@ -26,7 +26,7 @@ case_statuses_source as (
 
 case_categories_source as(
     select * from {{ ref('stg_case_categories') }}
-)
+),
 
 final as (
     select
@@ -37,7 +37,7 @@ final as (
 
         -- attributes
         case_type_source.case_type,
-        cases_source.case_category_id,
+        case_categories_source.case_category,
         case_statuses_source.case_status,
         cases_source.case_short_title,
         cases_source.case_number,
