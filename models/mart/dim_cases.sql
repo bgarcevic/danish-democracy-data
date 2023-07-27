@@ -20,6 +20,14 @@ case_type_source as (
     select * from {{ ref('stg_case_types') }}
 ),
 
+case_statuses_source as (
+    select * from {{ ref('stg_case_statuses') }}
+),
+
+case_categories_source as(
+    select * from {{ ref('stg_case_categories') }}
+)
+
 final as (
     select
         -- key
@@ -30,7 +38,7 @@ final as (
         -- attributes
         case_type_source.case_type,
         cases_source.case_category_id,
-        cases_source.case_status_id,
+        case_statuses_source.case_status,
         cases_source.case_short_title,
         cases_source.case_number,
         cases_source.case_number_prefix,
@@ -61,6 +69,10 @@ final as (
         on case_steps_source.case_id = cases_source.case_id
     left join case_type_source
         on cases_source.case_type_id = case_type_source.case_type_id
+    left join case_statuses_source
+        on cases_source.case_status_id = case_statuses_source.case_status_id
+    left join case_categories_source
+        on cases_source.case_category_id = case_categories_source.case_category_id
 )
 
 select * from final
