@@ -28,8 +28,15 @@ renamed as (
         statsbudgetsag as case_state_budget,
         begrundelse as case_reason,
         paragrafnummer as case_paragraph_number,
+        paragraf as case_paragraph,
         "afgørelsesdato" as case_decision_date,
-        "afgørelse" as case_decision
+        "afgørelse" as case_decision,
+        "rådsmødedato" as case_council_meeting_date,
+        lovnummer as case_law_number,
+        lovnummerdato as case_law_number_date,
+        retsinformationsurl as case_law_url,
+        fremsatundersagid as case_proposed_under_case_id,
+        deltundersagid as case_shared_case_id,
     from source
 )
 
