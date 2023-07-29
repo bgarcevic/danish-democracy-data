@@ -1,35 +1,35 @@
 with
 
-meetings_source as (
+meetings as (
     select * from {{ ref('stg_meetings') }}
 ),
 
-meeting_types_source as (
+meeting_types as (
     select * from {{ ref('stg_meeting_types') }}
 ),
 
-meeting_status_source as (
+meeting_status as (
     select * from {{ ref('stg_meeting_statuses') }}
 ),
 
 meetings as (
     select
-        meetings_source.meeting_id as meeting_sk,
-        meetings_source.meeting_date,
-        meetings_source.meeting_room,
-        meetings_source.meeting_number,
-        meetings_source.public_code,
-        meetings_source.meeting_period_id,
-        meetings_source.meeting_start_time_note,
-        meetings_source.meeting_title,
-        meeting_types_source.meeting_type,
-        meeting_status_source.meeting_status,
-        meetings_source.meeting_updated_at
-    from meetings_source
-    left join meeting_types_source
-        on meetings_source.meeting_type_id = meeting_types_source.meeting_type_id --noqa: LT05
-    left join meeting_status_source
-        on meetings_source.meeting_status_id = meeting_status_source.meeting_status_id --noqa: LT05
+        meetings.meeting_id as meeting_sk,
+        meetings.meeting_date,
+        meetings.meeting_room,
+        meetings.meeting_number,
+        meetings.public_code,
+        meetings.meeting_period_id,
+        meetings.meeting_start_time_note,
+        meetings.meeting_title,
+        meeting_types.meeting_type,
+        meeting_status.meeting_status,
+        meetings.meeting_updated_at
+    from meetings
+    left join meeting_types
+        on meetings.meeting_type_id = meeting_types.meeting_type_id
+    left join meeting_status
+        on meetings.meeting_status_id = meeting_status.meeting_status_id
 )
 
 select * from meetings
