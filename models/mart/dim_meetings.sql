@@ -12,9 +12,11 @@ meeting_status as (
     select * from {{ ref('stg_meeting_statuses') }}
 ),
 
-meetings as (
+final as (
     select
-        meetings.meeting_id as meeting_sk,
+        {{ dbt_utils.generate_surrogate_key(
+            ['meetings.meeting_id']
+        ) }} as meeting_sk,
         meetings.meeting_date,
         meetings.meeting_room,
         meetings.meeting_number,
@@ -32,4 +34,4 @@ meetings as (
         on meetings.meeting_status_id = meeting_status.meeting_status_id
 )
 
-select * from meetings
+select * from final

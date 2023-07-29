@@ -15,7 +15,6 @@ final as (
 
         -- attributes
         votes.vote_number,
-        votes.conclusion,
         votes.approved,
         votes.vote_comment,
         voting_types.voting_type,
