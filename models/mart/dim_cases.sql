@@ -62,7 +62,7 @@ final as (
         cases.case_updated_at
     from case_steps
     left join case_step_types
-        on case_steps.case_step_type_id = case_step_types.case_step_type_id --noqa: LT05
+        on case_steps.case_step_type_id = case_step_types.case_step_type_id
     left join case_step_statuses
         on case_steps.case_step_status_id = case_step_statuses.case_step_status_id --noqa: LT05
     left join cases
