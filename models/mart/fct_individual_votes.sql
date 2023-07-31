@@ -35,6 +35,7 @@ final as (
                 ['votes.case_step_id']
             ) 
         }} as case_sk,
+        
         -- meta
         individual_votes.individual_votes_updated_at
     from individual_votes
