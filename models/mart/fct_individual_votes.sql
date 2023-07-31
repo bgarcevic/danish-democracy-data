@@ -8,6 +8,10 @@ votes as (
     select * from {{ ref('stg_votes') }}
 ),
 
+meetings as (
+    select * from {{ ref('stg_meetings') }}
+),
+
 final as (
     select
         -- surrogate keys
@@ -35,12 +39,17 @@ final as (
                 ['votes.case_step_id']
             ) 
         }} as case_sk,
-        
+        {{ dbt_utils.generate_surrogate_key(
+                ['meetings.meeting_date']
+            ) 
+        }} as date_sk,
         -- meta
         individual_votes.individual_votes_updated_at
     from individual_votes
     left join votes
         on individual_votes.vote_id = votes.vote_id
+    left join meetings
+        on votes.meeting_id = meetings.meeting_id
 )
 
 select * from final
