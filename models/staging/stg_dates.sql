@@ -17,6 +17,7 @@ with date_spine as (
 
 create_date_table as (
     select
+        date_day as date_id,
         date_day as date,
         date_part('year', date_day) as year,
         date_part('isoyear', date_day) as iso_year,
