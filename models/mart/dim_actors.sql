@@ -1,10 +1,10 @@
 with
 
-actors_source as (
+actors as (
     select * from {{ ref('stg_actors') }}
 ),
 
-actor_types_source as (
+actor_types as (
     select * from {{ ref('stg_actor_types') }}
 ),
 
@@ -14,20 +14,20 @@ final as (
         {{ dbt_utils.generate_surrogate_key(['actor_id']) }} as actor_sk,
 
         -- attributes
-        actors_source.full_name,
-        actors_source.gender,
-        actors_source.birth_date,
-        actors_source.death_date,
-        actors_source.group_short_name,
-        actors_source.party_name,
-        actors_source.party_short_name,
-        actor_types_source.actor_type,
+        actors.full_name,
+        actors.gender,
+        actors.birth_date,
+        actors.death_date,
+        actors.group_short_name,
+        actors.party_name,
+        actors.party_short_name,
+        actor_types.actor_type,
 
         -- meta
-        actors_source.updated_at
-    from actors_source
-    left join actor_types_source
-        on actors_source.actor_type_id = actor_types_source.actor_type_id
+        actors.updated_at
+    from actors
+    left join actor_types
+        on actors.actor_type_id = actor_types.actor_type_id
 )
 
 select * from final

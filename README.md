@@ -21,6 +21,7 @@ Following commands create and activate a virtual environment and run the project
     python -m pip install -r requirements.txt
     python extract-load\danish_parliament_data_retriever.py
     dbt deps
+    dbt seed
     dbt build
     dbt docs generate
     dbt docs serve
@@ -35,6 +36,7 @@ Following commands create and activate a virtual environment and run the project
     python -m pip install -r requirements.txt
     python extract-load\danish_parliament_data_retriever.py
     dbt deps
+    dbt seed
     dbt build
     dbt docs generate
     dbt docs serve
@@ -49,6 +51,7 @@ Following commands create and activate a virtual environment and run the project
     python -m pip install -r requirements.txt
     python extract-load\danish_parliament_data_retriever.py
     dbt deps
+    dbt seed
     dbt build
     dbt docs generate
     dbt docs serve

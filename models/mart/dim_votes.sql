@@ -1,10 +1,10 @@
 with
 
-votes_source as (
+votes as (
     select * from {{ ref('stg_votes') }}
 ),
 
-voting_types_source as (
+voting_types as (
     select * from {{ ref('stg_voting_types') }}
 ),
 
@@ -14,18 +14,17 @@ final as (
         {{ dbt_utils.generate_surrogate_key(['vote_id']) }} as vote_sk,
 
         -- attributes
-        votes_source.vote_number,
-        votes_source.conclusion,
-        votes_source.approved,
-        votes_source.vote_comment,
-        voting_types_source.voting_type,
+        votes.vote_number,
+        votes.approved,
+        votes.vote_comment,
+        voting_types.voting_type,
 
         -- meta
-        votes_source.votes_updated_at,
-        voting_types_source.voting_type_updated_at,
-    from votes_source
-    left join voting_types_source
-        on votes_source.voting_type_id = voting_types_source.voting_type_id
+        votes.votes_updated_at,
+        voting_types.voting_type_updated_at
+    from votes
+    left join voting_types
+        on votes.voting_type_id = voting_types.voting_type_id
 )
 
 select * from final
