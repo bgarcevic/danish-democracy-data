@@ -92,7 +92,7 @@ models:
   - name: stg_dates_holidays
     description: A date table prepared for the dimensional modeling
     columns:
-      - name: date_id
+      - name: date_holidays_id
         description: The unique key for each holiday.
         tests:
           - not_null
