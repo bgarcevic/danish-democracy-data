@@ -3,6 +3,7 @@ with
 source as (
 
     select * from {{ source('danish_parliament', 'raw_sagstrinsstatus') }}
+    qualify row_number() over (partition by id order by opdateringsdato desc) = 1
 
 ),
 
