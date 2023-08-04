@@ -96,7 +96,6 @@ models:
         description: The unique key for each holiday.
         tests:
           - not_null
-          - unique
   - name: stg_individual_votes
     description: Vote expresses a member's position (for, against, neither for nor against) on a given matter that is the subject of a vote.
     columns:

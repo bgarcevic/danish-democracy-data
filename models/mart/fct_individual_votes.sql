@@ -40,7 +40,7 @@ final as (
             ) 
         }} as case_sk,
         {{ dbt_utils.generate_surrogate_key(
-                ['meetings.meeting_date']
+                ['cast(meetings.meeting_date as date)']
             ) 
         }} as date_sk,
         -- meta
