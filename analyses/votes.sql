@@ -16,13 +16,18 @@ cases as (
     select * from {{ ref('dim_cases') }}
 ),
 
+dates as (
+    select * from {{ ref('dim_dates') }}
+),
+
+individual_voting_types as (
+    select * from {{ ref('stg_individual_voting_types') }}
+),
+
 individual_votes as (
     select * from {{ ref('fct_individual_votes') }}
 ),
 
-dates as (
-    select * from {{ ref('dim_dates') }}
-),
 
 joins as (
     select 
@@ -42,6 +47,8 @@ joins as (
         on individual_votes.case_sk = cases.case_sk
     left join dates
         on individual_votes.date_sk = dates.date_sk
+    left join individual_voting_types
+        on individual_votes.individual_voting_type_sk = individual_voting_types.individual_voting_type_sk
 )
 
 select * from joins
