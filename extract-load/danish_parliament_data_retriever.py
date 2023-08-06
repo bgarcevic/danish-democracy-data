@@ -189,7 +189,7 @@ if __name__ == "__main__":
         "Sagstrinstype",
         "Sagskategori",
         "Sagsstatus",
-        "Sagstype"
+        "Sagstype",
         "Stemme",
         "Stemmetype"
     ]
