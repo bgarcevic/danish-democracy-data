@@ -177,7 +177,7 @@ if __name__ == "__main__":
         "Afstemning",
         "Afstemningstype",
         "Aktør",
-        "Aktørtype"
+        "Aktørtype".
         "Møde",
         "Mødestatus",
         "Mødetype",
