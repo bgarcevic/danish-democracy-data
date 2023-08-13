@@ -46,7 +46,7 @@ final as (
 
         -- degenerate dimension
         individual_voting_types.individual_voting_type,
-        
+
         -- meta
         individual_votes.individual_votes_updated_at
     from individual_votes
@@ -55,7 +55,9 @@ final as (
     left join meetings
         on votes.meeting_id = meetings.meeting_id
     left join individual_voting_types
-        on individual_votes.individual_voting_type_id = individual_voting_types.individual_voting_type_id
+        on
+            individual_votes.individual_voting_type_id
+            = individual_voting_types.individual_voting_type_id
 )
 
 select * from final
