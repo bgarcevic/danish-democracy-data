@@ -19,7 +19,7 @@ Following commands create and activate a virtual environment and run the project
     source .venv/bin/activate
     python -m pip install --upgrade pip
     python -m pip install -r requirements.txt
-    python extract-load\danish_parliament_data_retriever.py
+    python extract-load/danish_parliament_data_retriever.py
     dbt deps
     dbt seed
     dbt build
