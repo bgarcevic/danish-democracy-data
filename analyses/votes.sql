@@ -16,21 +16,26 @@ cases as (
     select * from {{ ref('dim_cases') }}
 ),
 
-individual_votes as (
-    select * from {{ ref('fct_individual_votes') }}
-),
-
 dates as (
     select * from {{ ref('dim_dates') }}
 ),
 
+individual_voting_types as (
+    select * from {{ ref('stg_individual_voting_types') }}
+),
+
+individual_votes as (
+    select * from {{ ref('fct_individual_votes') }}
+),
+
+
 joins as (
-    select 
-        votes.* exclude(vote_sk), 
-        actors.* exclude(actor_sk), 
-        meetings.* exclude(meeting_sk), 
-        cases.* exclude(case_sk),
-        dates.* exclude(date_sk)
+    select
+        votes.* exclude (vote_sk),
+        actors.* exclude (actor_sk),
+        meetings.* exclude (meeting_sk),
+        cases.* exclude (case_sk),
+        dates.* exclude (date_sk)
     from individual_votes
     left join votes
         on individual_votes.vote_sk = votes.vote_sk
@@ -42,6 +47,10 @@ joins as (
         on individual_votes.case_sk = cases.case_sk
     left join dates
         on individual_votes.date_sk = dates.date_sk
+    left join individual_voting_types
+        on
+            individual_votes.individual_voting_type_sk
+            = individual_voting_types.individual_voting_type_sk
 )
 
 select * from joins

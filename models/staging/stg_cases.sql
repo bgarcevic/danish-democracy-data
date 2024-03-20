@@ -37,7 +37,7 @@ renamed as (
         lovnummerdato as case_law_number_date,
         retsinformationsurl as case_law_url,
         fremsatundersagid as case_proposed_under_case_id,
-        deltundersagid as case_shared_case_id,
+        deltundersagid as case_shared_case_id
     from source
 )
 

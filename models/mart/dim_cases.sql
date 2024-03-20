@@ -24,7 +24,7 @@ case_statuses as (
     select * from {{ ref('stg_case_statuses') }}
 ),
 
-case_categories as(
+case_categories as (
     select * from {{ ref('stg_case_categories') }}
 ),
 
