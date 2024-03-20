@@ -16,7 +16,7 @@ Following commands create and activate a virtual environment and run the project
     git clone https://github.com/bgarcevic/danish-democracy-data.git
     cd danish-democracy-data
     python -m venv .dbtenv
-    source .venv/bin/activate
+    source .dbtenv/bin/activate
     python -m pip install --upgrade pip
     python -m pip install -r requirements.txt
     python extract-load/danish_parliament_data_retriever.py
@@ -31,7 +31,7 @@ Following commands create and activate a virtual environment and run the project
     git clone https://github.com/bgarcevic/danish-democracy-data.git
     cd danish-democracy-data
     python -m venv .dbtenv
-    .venv\Scripts\Activate.ps1
+    .dbtenv\Scripts\Activate.ps1
     python -m pip install --upgrade pip
     python -m pip install -r requirements.txt
     python extract-load\danish_parliament_data_retriever.py
@@ -46,7 +46,7 @@ Following commands create and activate a virtual environment and run the project
     git clone https://github.com/bgarcevic/danish-democracy-data.git
     cd danish-democracy-data
     python -m venv .dbtenv
-    .venv\Scripts\activate.bat
+    .dbtenv\Scripts\activate.bat
     python -m pip install --upgrade pip
     python -m pip install -r requirements.txt
     python extract-load\danish_parliament_data_retriever.py
