@@ -5,26 +5,28 @@ import sys
 from loguru import logger
 
 class InterceptHandler(logging.Handler):
-
     @logger.catch(default=True, onerror=lambda _: sys.exit(1))
     def emit(self, record):
-        # Get corresponding Loguru level if it exists.
         try:
             level = logger.level(record.levelname).name
         except ValueError:
             level = record.levelno
 
-        # Find caller from where originated the logged message.
         frame, depth = sys._getframe(6), 6
         while frame and frame.f_code.co_filename == logging.__file__:
             frame = frame.f_back
             depth += 1
 
-        logger.opt(depth=depth, exception=record.exc_info).log(level, record.getMessage())
+        logger.opt(depth=depth, exception=record.exc_info).log(
+            level, record.getMessage()
+        )
 
+
+# Configure the logger for dlt
 logger_dlt = logging.getLogger("dlt")
 logger_dlt.addHandler(InterceptHandler())
 
+# Configure Loguru to write logs to a file
 logger.add("dlt_loguru.log")
 
 @dlt.source
@@ -40,17 +42,12 @@ def danish_parliament_source():
             "base_url": "https://oda.ft.dk/api/",
             "paginator": {
                 "type": "json_link",
-                "next_url_path": "odata.nextLink",
+                "next_url_path": "['odata.nextLink']",
             },
         },
         "resource_defaults": {
             "write_disposition": "replace",
-            "parallelized": True,
-            "endpoint": {
-                "params": {
-                    "inlinecount": "allpages",
-                },
-             },
+            "parallelized": True
         },
         "resources": [
             "Afstemning",
@@ -80,7 +77,7 @@ def danish_parliament_source():
 def load_danish_parliament() -> None:
     pipeline = dlt.pipeline(
         pipeline_name="rest_api_danish_parliament",
-        destination="duckdb",
+        destination=dlt.destinations.duckdb("data/danish_democracy_data.duckdb"),
         dataset_name="danish_parliament"
     )
 
