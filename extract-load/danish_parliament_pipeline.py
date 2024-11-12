@@ -28,7 +28,7 @@ logger_dlt.addHandler(InterceptHandler())
 logger.add("dlt_loguru.log")
 
 @dlt.source
-def folketinget_source():
+def danish_parliament_source():
     """
     This function sets up a REST API configuration to fetch data from the 
     Folketinget API. 
@@ -77,14 +77,14 @@ def folketinget_source():
     yield from rest_api_resources(config)
 
 
-def load_energi_data_service() -> None:
+def load_danish_parliament() -> None:
     pipeline = dlt.pipeline(
-        pipeline_name="rest_api_energi_data_service",
+        pipeline_name="rest_api_danish_parliament",
         destination="duckdb",
-        dataset_name="folketinget"
+        dataset_name="danish_parliament"
     )
 
-    load_info = pipeline.run(folketinget_source())
+    load_info = pipeline.run(danish_parliament_source())
     # Logging the load information
     logger.info("Pipeline run completed successfully.")
     logger.info(f"Load Info: {load_info}")
@@ -104,5 +104,5 @@ def load_energi_data_service() -> None:
 
 
 if __name__ == "__main__":
-    load_energi_data_service()
+    load_danish_parliament()
          
