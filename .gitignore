@@ -17,3 +17,4 @@ secrets.toml
 **/__pycache__/
 **/*.py[cod]
 **/*$py.class
+package-lock.yml

@@ -4,5 +4,6 @@
     },
     "python.formatting.provider": "none",
     "dbt.queryLimit": 500,
-    "dbt.dbtIntegration": "core"
+    "dbt.dbtIntegration": "core",
+    "dbt.perspectiveTheme": "Vintage"
 }

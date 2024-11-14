@@ -1,4 +1,6 @@
-with date_spine as (
+with 
+
+date_spine as (
 
   {{ dbt_utils.date_spine(
       start_date = "cast('2014-01-01' as date)",
@@ -19,7 +21,7 @@ create_date_table as (
         date_trunc('year', date_day)
         + interval '1 year'
         - interval '1 day' as year_end_date,
-        date_day - date_trunc('year', date_day) + 1 as year_day_number,
+        date_day::date - date_trunc('year', date_day) + 1 as year_day_number,
         date_diff('year', current_date, date_day) as year_offset,
         if(
             date_diff('year', current_date, date_day) < 0, 1, 0
@@ -29,7 +31,7 @@ create_date_table as (
         date_trunc('quarter', date_day)
         + interval '1 quarter'
         - interval '1 day' as quarter_end_date,
-        date_day - date_trunc('quarter', date_day) + 1 as quarter_day_number,
+        date_day::date - date_trunc('quarter', date_day) + 1 as quarter_day_number,
         date_diff('quarter', current_date, date_day) as quarter_offset,
         if(
             date_diff('quarter', current_date, date_day) < 0, 1, 0
@@ -46,7 +48,7 @@ create_date_table as (
             monthname(date_day), ' ', date_part('year', date_day)
         ) as month_and_year,
         yearweek(date_day) as month_and_year_number,
-        date_day - date_trunc('month', date_day) + 1 as month_day_number,
+        date_day::date - date_trunc('month', date_day) + 1 as month_day_number,
         date_diff('month', current_date, date_day) as month_offset,
         if(
             date_diff('month', current_date, date_day) < 0, 1, 0
