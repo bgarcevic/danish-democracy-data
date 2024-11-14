@@ -19,7 +19,7 @@ Following commands create and activate a virtual environment and run the project
     source .dbtenv/bin/activate
     python -m pip install --upgrade pip
     python -m pip install -r requirements.txt
-    python extract-load/danish_parliament_data_retriever.py
+    python extract/danish_parliament_data_retriever.py
     dbt deps
     dbt seed
     dbt build
@@ -34,7 +34,7 @@ Following commands create and activate a virtual environment and run the project
     .dbtenv\Scripts\Activate.ps1
     python -m pip install --upgrade pip
     python -m pip install -r requirements.txt
-    python extract-load\danish_parliament_data_retriever.py
+    python extract\danish_parliament_data_retriever.py
     dbt deps
     dbt seed
     dbt build
@@ -49,7 +49,7 @@ Following commands create and activate a virtual environment and run the project
     .dbtenv\Scripts\activate.bat
     python -m pip install --upgrade pip
     python -m pip install -r requirements.txt
-    python extract-load\danish_parliament_data_retriever.py
+    python extract\danish_parliament_data_retriever.py
     dbt deps
     dbt seed
     dbt build
@@ -69,54 +69,7 @@ The data directory will look like this:
 ```
 data
 ├── danish_democracy_data.duckdb
-├── curated
-└── raw
-    ├── afstemning
-    │   ├── afstemning_yyyymmdd.json
-    │   └── last_run_afstemning.json
-    ├── afstemningstype
-    │   ├── afstemningstype_yyyymmdd.json
-    │   └── last_run_afstemningstype.json
-    ├── aktør
-    │   ├── aktør_yyyymmdd.json
-    │   └── last_run_aktør.json
-    ├── aktørtype
-    │   ├── aktørtype_yyyymmdd.json
-    │   └── last_run_aktørtype.json
-    ├── møde
-    │   ├── møde_yyyymmdd.json
-    │   └── last_run_møde.json
-    ├── mødestatus
-    │   ├── mødestatus_yyyymmdd.json
-    │   └── last_run_mødestatus.json
-    ├── mødetype
-    │   ├── mødetype_yyyymmdd.json
-    │   └── last_run_mødetype.json
-    ├── periode
-    │   ├── periode_yyyymmdd.json
-    │   └── last_run_periode.json
-    ├── sag
-    │   ├── sag_yyyymmdd.json
-    │   └── last_run_sag.json
-    ├── sagstrin
-    │   ├── sagstrin_yyyymmdd.json
-    │   └── last_run_sagstrin.json
-    ├── sagstrinaktør
-    │   ├── sagstrinaktør_yyyymmdd.json
-    │   └── last_run_sagstrinaktør.json
-    ├── sagstrinsstatus
-    │   ├── sagstrinsstatus_yyyymmdd.json
-    │   └── last_run_sagstrinsstatus.json
-    ├── sagstrinstype
-    │   ├── sagstrinstype_yyyymmdd.json
-    │   └── last_run_sagstrinstype.json
-    ├── stemme
-    │   ├── stemme_yyyymmdd.json
-    │   └── last_run_stemme.json
-    └── stemmetype
-        ├── stemmetype_yyyymmdd.json
-        └── last_run_stemmetype.json
-```
+└── curated
 
 ### DuckDB location
 
@@ -128,7 +81,7 @@ Run
 
 * PowerShell:
     ```powershell
-    python extract-load\danish_parliament_data_retriever.py
+    python extract\danish_parliament_pipeline.py
     ```
 
 ## dbt
