@@ -1,9 +1,5 @@
 with
 
-source as (
-    select * from {{ ref('publicholiday_dk') }}
-),
-
 renamed as (
     select
         date as date_holidays_id,
@@ -14,7 +10,7 @@ renamed as (
         global as is_global_holiday,
         type as holiday_type,
         counties
-    from source
+    from {{ ref('publicholiday_dk') }}
 )
 
 select * from renamed

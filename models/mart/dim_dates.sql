@@ -17,10 +17,10 @@ final as (
                 ['dates.date_id']
             ) 
         }} as date_sk,
-        dates.date,
+        dates.date_day,
 
         -- Year specific fields
-        dates.year,
+        dates.date_year,
         dates.iso_year,
         dates.year_start_date,
         dates.year_end_date,
@@ -29,7 +29,7 @@ final as (
         dates.year_completed,
 
         -- Quarter specific fields
-        dates.quarter,
+        dates.date_quarter,
         dates.quarter_start_date,
         dates.quarter_end_date,
         dates.quarter_day_number,
@@ -37,7 +37,7 @@ final as (
         dates.quarter_completed,
 
         -- Month specific fields
-        dates.month,
+        dates.date_month,
         dates.month_start_date,
         dates.month_end_date,
         dates.month_name,
@@ -50,7 +50,7 @@ final as (
         dates.month_completed,
 
         -- Week specific fields
-        dates.week,
+        dates.date_week,
         dates.iso_week_of_year,
         dates.week_start_date,
         dates.week_end_date,

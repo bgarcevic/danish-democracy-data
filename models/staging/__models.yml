@@ -6,7 +6,7 @@ models:
     columns:
       - name: actor_type_id
         description: The unique key for each actor type.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: stg_actors
@@ -14,7 +14,7 @@ models:
     columns:
       - name: actor_id
         description: The unique key for each actor.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: stg_case_categories
@@ -22,7 +22,7 @@ models:
     columns:
       - name: case_category_id
         description: The unique key for each case category.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: stg_case_statuses
@@ -30,7 +30,7 @@ models:
     columns:
       - name: case_status_id
         description: The unique key for each case status.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: stg_case_step_actor
@@ -38,7 +38,7 @@ models:
     columns:
       - name: case_step_actor_id
         description: The unique key for each case step and actor interaction.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: stg_case_step_statuses
@@ -46,7 +46,7 @@ models:
     columns:
       - name: case_step_status_id
         description: The unique key for each case step status.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: stg_case_step_types
@@ -54,7 +54,7 @@ models:
     columns:
       - name: case_step_type_id
         description: The unique key for each case step type.
-        tests:
+        data_tests:
           - not_null
           - unique  
   - name: stg_case_steps
@@ -62,7 +62,7 @@ models:
     columns:
       - name: case_step_id
         description: The unique key for each case step.
-        tests:
+        data_tests:
           - not_null
           - unique 
   - name: stg_case_types
@@ -70,7 +70,7 @@ models:
     columns:
       - name: case_type_id
         description: The unique key for each case type.
-        tests:
+        data_tests:
           - not_null
           - unique  
   - name: stg_cases
@@ -78,7 +78,7 @@ models:
     columns:
       - name: case_id
         description: The unique key for each case.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: stg_dates
@@ -86,7 +86,7 @@ models:
     columns:
       - name: date_id
         description: The unique key for each date.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: stg_dates_holidays
@@ -94,14 +94,14 @@ models:
     columns:
       - name: date_holidays_id
         description: The unique key for each holiday.
-        tests:
+        data_tests:
           - not_null
   - name: stg_individual_votes
     description: Vote expresses a member's position (for, against, neither for nor against) on a given matter that is the subject of a vote.
     columns:
       - name: individual_vote_id
         description: The unique key for each individual vote.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: stg_individual_voting_types
@@ -109,7 +109,7 @@ models:
     columns:
       - name: individual_voting_type_id
         description: The unique key for each individual voting type.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: stg_meeting_statuses
@@ -117,7 +117,7 @@ models:
     columns:
       - name: meeting_status_id
         description: The unique key for each meeting status.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: stg_meeting_types
@@ -125,7 +125,7 @@ models:
     columns:
       - name: meeting_type_id
         description: The unique key for each meeting type.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: stg_meetings
@@ -133,7 +133,7 @@ models:
     columns:
       - name: meeting_id
         description: The unique key for each meeting.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: stg_periods
@@ -141,7 +141,7 @@ models:
     columns:
       - name: period_id
         description: The unique key for each period.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: stg_votes
@@ -149,7 +149,7 @@ models:
     columns:
       - name: vote_id
         description: The unique key for each vote.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: stg_voting_types
@@ -157,7 +157,7 @@ models:
     columns:
       - name: voting_type_id
         description: The unique key for each voting type.
-        tests:
+        data_tests:
           - not_null
           - unique
 

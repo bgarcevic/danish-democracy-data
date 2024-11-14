@@ -9,4 +9,12 @@ env/
 .dbtenv/
 **/*.duckdb
 **/*.duckdb.wal
+duckdb.exe
 data/
+secrets.toml
+.env
+*.log
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+package-lock.yml

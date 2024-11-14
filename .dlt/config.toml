@@ -1,0 +1,17 @@
+[runtime]
+dlthub_telemetry = true
+log_level="INFO" 
+
+[data_writer]
+file_max_bytes=200000000
+buffer_max_items=100000
+
+[extract]
+workers = 5
+
+[normalize]
+workers = 5
+
+[load]
+workers = 5
+delete_completed_jobs=true

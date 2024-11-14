@@ -1,12 +1,5 @@
 with
 
-source as (
-
-    select * from {{ source('danish_parliament', 'raw_sagstrin') }}
-    qualify row_number() over (partition by id order by opdateringsdato desc) = 1
-
-),
-
 renamed as (
     select
         id as case_step_id,
@@ -18,8 +11,9 @@ renamed as (
         statusid as case_step_status_id,
         titel as case_step_title,
         typeid as case_step_type_id,
-        filename as file_name
-    from source
+        _dlt_load_id,
+        _dlt_id
+    from {{ source('danish_parliament', 'sagstrin') }}
 )
 
 select * from renamed

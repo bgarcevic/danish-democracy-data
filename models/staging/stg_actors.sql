@@ -1,11 +1,5 @@
 with
 
-source as (
-
-    select * from {{ source('danish_parliament', 'raw_aktoer') }}
-    qualify row_number() over (partition by id order by opdateringsdato desc) = 1
-),
-
 renamed as (
 
     select
@@ -20,7 +14,8 @@ renamed as (
         opdateringsdato as updated_at,
         startdato as valid_from,
         slutdato as valid_to,
-        filename as file_name,
+        _dlt_load_id,
+        _dlt_id,
         substring(
             biografi,
             position('<sex>' in biografi) + length('<sex>'),
@@ -55,8 +50,10 @@ renamed as (
             position('</partyShortname>' in biografi)
             - position('<partyShortname>' in biografi)
             - length('<partyShortname>')
-        ) as party_short_name
-    from source
+        ) as party_short_name,
+        _dlt_load_id,
+        _dlt_id
+    from {{ source('danish_parliament', 'akt_r') }}
 
 )
 
