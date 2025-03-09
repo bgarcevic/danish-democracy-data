@@ -19,3 +19,4 @@ secrets.toml
 **/*$py.class
 package-lock.yml
 .vscode
+.venv
