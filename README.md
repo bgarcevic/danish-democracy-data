@@ -5,7 +5,19 @@ The API used is the open API from [Folketinget API](https://oda.ft.dk/Home/WebAp
 
 ## Development
 
-* Python >= 3.11 https://www.python.org/downloads/
+* Install uv https://docs.astral.sh/uv/getting-started/installation/
+
+Use curl to download the script and execute it with sh:
+
+macOS and Linux:
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+windows:
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
 
 ### Running this project
 
@@ -13,43 +25,35 @@ Following commands create and activate a virtual environment and run the project
 
 * Bash:
     ```bash
+    curl -LsSf https://astral.sh/uv/install.sh | sh
     git clone https://github.com/bgarcevic/danish-democracy-data.git
     cd danish-democracy-data
-    python -m venv .dbtenv
-    source .dbtenv/bin/activate
-    python -m pip install --upgrade pip
-    python -m pip install -r requirements.txt
-    python extract/danish_parliament_data_retriever.py
-    dbt deps
-    dbt seed
-    dbt build
-    dbt docs generate
-    dbt docs serve
+    uv run python extract/danish_parliament_data_retriever.py
+    cd dbt
+    uv run dbt deps
+    uv run dbt build
+    uv run dbt docs generate
+    uv run dbt docs serve
     ```
 * PowerShell:
     ```powershell
+    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
     git clone https://github.com/bgarcevic/danish-democracy-data.git
     cd danish-democracy-data
-    python -m venv .dbtenv
-    .dbtenv\Scripts\Activate.ps1
-    python -m pip install --upgrade pip
-    python -m pip install -r requirements.txt
-    python extract\danish_parliament_data_retriever.py
-    dbt deps
-    dbt seed
-    dbt build
-    dbt docs generate
-    dbt docs serve
+    uv run python extract\danish_parliament_data_retriever.py
+    cd dbt
+    uv run dbt deps
+    uv run dbt build
+    uv run dbt docs generate
+    uv run dbt docs serve
     ```
 * Windows CMD:
     ```
+    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
     git clone https://github.com/bgarcevic/danish-democracy-data.git
     cd danish-democracy-data
-    python -m venv .dbtenv
-    .dbtenv\Scripts\activate.bat
-    python -m pip install --upgrade pip
-    python -m pip install -r requirements.txt
-    python extract\danish_parliament_data_retriever.py
+    uv run python extract\danish_parliament_data_retriever.py
+    cd dbt
     dbt deps
     dbt seed
     dbt build
@@ -59,21 +63,15 @@ Following commands create and activate a virtual environment and run the project
 
 ### Development Tools
 
-* Code formatting: `black`
+* Code formatting: `ruff`
 * Add-in: `dbt Power User`
 * SQL linting/formatting: `sqlfluff`
 
 ## File Locations
 
-The data directory will look like this:
-```
-data
-├── danish_democracy_data.duckdb
-└── curated
-
 ### DuckDB location
 
-DuckDB file will be in project-root under `data/danish_democracy_data.duckdb`
+DuckDB file will be in project-root under `danish_democracy_data.duckdb`
 
 ## Staging:
 
@@ -81,7 +79,7 @@ Run
 
 * PowerShell:
     ```powershell
-    python extract\danish_parliament_pipeline.py
+    uv run extract\danish_parliament_pipeline.py
     ```
 
 ## dbt
@@ -107,6 +105,12 @@ Run SQL linter on dbt models:
 ```
 sqlfluff lint
 ```
+
+### export the data to parquet
+
+Change the materialization to 'external' in dbt_projects.yml for the mart layer and run dbt build.
+
+Read more [here](https://github.com/duckdb/dbt-duckdb?tab=readme-ov-file#writing-to-external-files).
 
 ## Browsing the data
 Some options:

@@ -18,3 +18,4 @@ secrets.toml
 **/*.py[cod]
 **/*$py.class
 package-lock.yml
+.vscode
