@@ -13,5 +13,4 @@ workers = 5
 workers = 5
 
 [load]
-workers = 5
 delete_completed_jobs=true
