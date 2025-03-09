@@ -5,7 +5,19 @@ The API used is the open API from [Folketinget API](https://oda.ft.dk/Home/WebAp
 
 ## Development
 
-* Python >= 3.11 https://www.python.org/downloads/
+* Install uv https://docs.astral.sh/uv/getting-started/installation/
+
+Use curl to download the script and execute it with sh:
+
+macOS and Linux:
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+windows:
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
 
 ### Running this project
 
@@ -15,11 +27,8 @@ Following commands create and activate a virtual environment and run the project
     ```bash
     git clone https://github.com/bgarcevic/danish-democracy-data.git
     cd danish-democracy-data
-    python -m venv .dbtenv
-    source .dbtenv/bin/activate
-    python -m pip install --upgrade pip
-    python -m pip install -r requirements.txt
-    python extract/danish_parliament_data_retriever.py
+    uv run python extract/danish_parliament_data_retriever.py
+    cd dbt
     dbt deps
     dbt seed
     dbt build
@@ -30,11 +39,8 @@ Following commands create and activate a virtual environment and run the project
     ```powershell
     git clone https://github.com/bgarcevic/danish-democracy-data.git
     cd danish-democracy-data
-    python -m venv .dbtenv
-    .dbtenv\Scripts\Activate.ps1
-    python -m pip install --upgrade pip
-    python -m pip install -r requirements.txt
-    python extract\danish_parliament_data_retriever.py
+    uv run python extract\danish_parliament_data_retriever.py
+    cd dbt
     dbt deps
     dbt seed
     dbt build
@@ -45,11 +51,8 @@ Following commands create and activate a virtual environment and run the project
     ```
     git clone https://github.com/bgarcevic/danish-democracy-data.git
     cd danish-democracy-data
-    python -m venv .dbtenv
-    .dbtenv\Scripts\activate.bat
-    python -m pip install --upgrade pip
-    python -m pip install -r requirements.txt
-    python extract\danish_parliament_data_retriever.py
+    uv run python extract\danish_parliament_data_retriever.py
+    cd dbt
     dbt deps
     dbt seed
     dbt build
@@ -59,7 +62,7 @@ Following commands create and activate a virtual environment and run the project
 
 ### Development Tools
 
-* Code formatting: `black`
+* Code formatting: `ruff`
 * Add-in: `dbt Power User`
 * SQL linting/formatting: `sqlfluff`
 
