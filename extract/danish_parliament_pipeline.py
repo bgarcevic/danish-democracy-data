@@ -44,7 +44,7 @@ def danish_parliament_source():
             "Sagstype",
             "Stemme",
             "Stemmetype",
-        ],
+        ],"
     }
 
     yield from rest_api_resources(config)
