@@ -66,7 +66,7 @@ def danish_parliament_source():
     yield from rest_api_resources(config)
 
 
-def load_danish_parliament() -> None:
+def main() -> None:
     pipeline = dlt.pipeline(
         pipeline_name="rest_api_danish_parliament",
         destination=dlt.destinations.duckdb("danish_democracy_data.duckdb"),
@@ -80,4 +80,4 @@ def load_danish_parliament() -> None:
 
 
 if __name__ == "__main__":
-    load_danish_parliament()
+    main()
