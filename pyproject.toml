@@ -9,4 +9,5 @@ dependencies = [
     "dbt-duckdb>=1.9.2",
     "dlt>=1.8.0",
     "ruff>=0.9.10",
+    "sqlfluff-templater-dbt>=3.3.1",
 ]

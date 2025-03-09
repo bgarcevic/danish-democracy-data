@@ -7,14 +7,12 @@ import logging
 logger = logging.getLogger("dlt")
 logger.setLevel(logging.INFO)
 
-# Configure Loguru to write logs to a file
-logger.add("dlt_loguru.log")
 
 @dlt.source
 def danish_parliament_source():
     """
-    This function sets up a REST API configuration to fetch data from the 
-    Folketinget API. 
+    This function sets up a REST API configuration to fetch data from the
+    Folketinget API.
     Yields:
         Generator: A generator that yields resources fetched from the REST API.
     """
@@ -26,28 +24,25 @@ def danish_parliament_source():
                 "next_url_path": "['odata.nextLink']",
             },
         },
-        "resource_defaults": {
-            "write_disposition": "replace",
-            "parallelized": True
-        },
+        "resource_defaults": {"write_disposition": "replace", "parallelized": True},
         "resources": [
-            "Afstemning",
-            "Afstemningstype",
-            "Aktør",
-            "Aktørtype",
-            "Møde",
-            "Mødestatus",
-            "Mødetype",
-            "Periode",
-            "Sag",
-            "Sagstrin",
-            "SagstrinAktør",
-            "Sagstrinsstatus",
-            "Sagstrinstype",
-            "Sagskategori",
-            "Sagsstatus",
-            "Sagstype",
-            "Stemme",
+            # "Afstemning",
+            # "Afstemningstype",
+            # "Aktør",
+            # "Aktørtype",
+            # "Møde",
+            # "Mødestatus",
+            # "Mødetype",
+            # "Periode",
+            # "Sag",
+            # "Sagstrin",
+            # "SagstrinAktør",
+            # "Sagstrinsstatus",
+            # "Sagstrinstype",
+            # "Sagskategori",
+            # "Sagsstatus",
+            # "Sagstype",
+            # "Stemme",
             "Stemmetype",
         ],
     }
@@ -58,8 +53,8 @@ def danish_parliament_source():
 def load_danish_parliament() -> None:
     pipeline = dlt.pipeline(
         pipeline_name="rest_api_danish_parliament",
-        destination=dlt.destinations.duckdb("data/danish_democracy_data.duckdb"),
-        dataset_name="danish_parliament"
+        destination=dlt.destinations.duckdb("danish_democracy_data.duckdb"),
+        dataset_name="danish_parliament",
     )
 
     pipeline.run(danish_parliament_source())
@@ -68,7 +63,5 @@ def load_danish_parliament() -> None:
     logger.info(f"Last Trace: {pipeline.last_trace}")
 
 
-
 if __name__ == "__main__":
     load_danish_parliament()
-         
