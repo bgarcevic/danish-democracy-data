@@ -68,15 +68,9 @@ Following commands create and activate a virtual environment and run the project
 
 ## File Locations
 
-The data directory will look like this:
-```
-data
-├── danish_democracy_data.duckdb
-└── curated
-
 ### DuckDB location
 
-DuckDB file will be in project-root under `data/danish_democracy_data.duckdb`
+DuckDB file will be in project-root under `danish_democracy_data.duckdb`
 
 ## Staging:
 
@@ -84,7 +78,7 @@ Run
 
 * PowerShell:
     ```powershell
-    python extract\danish_parliament_pipeline.py
+    uv run extract\danish_parliament_pipeline.py
     ```
 
 ## dbt
@@ -110,6 +104,12 @@ Run SQL linter on dbt models:
 ```
 sqlfluff lint
 ```
+
+### export the data to parquet
+
+Change the materialization to 'external' in dbt_projects.yml for the mart layer and run dbt build.
+
+Read more [here](https://github.com/duckdb/dbt-duckdb?tab=readme-ov-file#writing-to-external-files).
 
 ## Browsing the data
 Some options:
