@@ -25,30 +25,31 @@ Following commands create and activate a virtual environment and run the project
 
 * Bash:
     ```bash
+    curl -LsSf https://astral.sh/uv/install.sh | sh
     git clone https://github.com/bgarcevic/danish-democracy-data.git
     cd danish-democracy-data
     uv run python extract/danish_parliament_data_retriever.py
     cd dbt
-    dbt deps
-    dbt seed
-    dbt build
-    dbt docs generate
-    dbt docs serve
+    uv run dbt deps
+    uv run dbt build
+    uv run dbt docs generate
+    uv run dbt docs serve
     ```
 * PowerShell:
     ```powershell
+    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
     git clone https://github.com/bgarcevic/danish-democracy-data.git
     cd danish-democracy-data
     uv run python extract\danish_parliament_data_retriever.py
     cd dbt
-    dbt deps
-    dbt seed
-    dbt build
-    dbt docs generate
-    dbt docs serve
+    uv run dbt deps
+    uv run dbt build
+    uv run dbt docs generate
+    uv run dbt docs serve
     ```
 * Windows CMD:
     ```
+    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
     git clone https://github.com/bgarcevic/danish-democracy-data.git
     cd danish-democracy-data
     uv run python extract\danish_parliament_data_retriever.py
