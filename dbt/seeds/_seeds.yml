@@ -6,6 +6,8 @@ seeds:
     config:
       docs:
         show: true
+      column_types:
+        Counties: varchar
     columns:
       - name: date
         data_type: date
