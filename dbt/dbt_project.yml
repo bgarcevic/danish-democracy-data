@@ -35,8 +35,10 @@ models:
     # Config indicated by + and applies to all files under models/example/
     staging:
       +materialized: view
-    intermediate:
-      +materialized: view
+    # Uncomment when adding models to models/intermediate/
+    # (commented out to avoid an unused config path warning while it's empty)
+    # intermediate:
+    #   +materialized: view
     mart:
       +materialized: table
     

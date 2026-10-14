@@ -1,4 +1,4 @@
-with 
+with
 
 renamed as (
     select

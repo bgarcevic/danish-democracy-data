@@ -50,9 +50,7 @@ renamed as (
             position('</partyShortname>' in biografi)
             - position('<partyShortname>' in biografi)
             - length('<partyShortname>')
-        ) as party_short_name,
-        _dlt_load_id,
-        _dlt_id
+        ) as party_short_name
     from {{ source('danish_parliament', 'akt_r') }}
 
 )

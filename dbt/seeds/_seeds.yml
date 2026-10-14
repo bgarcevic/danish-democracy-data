@@ -2,30 +2,31 @@ version: 2
 
 seeds:
   - name: publicholiday_dk
-    description: "Public holidays in Denmark in the period from 2014-2024 available from the public api: https://date.nager.at/PublicHoliday/Denmark"
-    docs:
-      show: true
+    description: "Public holidays in Denmark in the period from 2014-2030 available from the public api: https://date.nager.at/PublicHoliday/Denmark"
+    config:
+      docs:
+        show: true
+      column_types:
+        Counties: varchar
     columns:
       - name: date
-        type: date
+        data_type: date
         description: "The date of the public holiday"
       - name: LocalName
-        type: string
+        data_type: string
         description: "The local name of the public holiday"
       - name: Name
-        type: string
+        data_type: string
         description: "The name of the public holiday"
       - name: CountryCode
-        type: string
+        data_type: string
         description: "The country code of the public holiday"
       - name: Fixed
-        type: boolean
+        data_type: boolean
         description: "Is the public holiday fixed"
       - name: Global
-        type: boolean
+        data_type: boolean
         description: "Is the public holiday global"
       - name: Counties
-        type: string
+        data_type: string
         description: "The counties of the public holiday"
-        
-      

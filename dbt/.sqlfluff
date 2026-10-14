@@ -4,11 +4,8 @@ templater = dbt
 runaway_limit = 10
 max_line_length = 80
 indent_unit = space
-exclude_rules = RF05
-
-[sqlfluff:templater:dbt]
-project_dir = ./dbt
-profiles_dir = ./dbt
+# ST06: surrogate keys are deliberately selected first in mart models
+exclude_rules = RF05, ST06
 
 [sqlfluff:indentation]
 tab_space_size = 4

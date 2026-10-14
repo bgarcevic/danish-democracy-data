@@ -1,6 +1,8 @@
 [runtime]
 dlthub_telemetry = true
-log_level="INFO" 
+log_level="INFO"
+request_timeout = 120
+request_max_attempts = 10
 
 [data_writer]
 file_max_bytes=200000000
