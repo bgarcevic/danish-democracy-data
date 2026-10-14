@@ -5,9 +5,13 @@ description = "Open source project pulling data from the Danish Parliament API"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "dbt-core>=1.9.3",
-    "dbt-duckdb>=1.9.2",
-    "dlt>=1.8.0",
-    "ruff>=0.9.10",
-    "sqlfluff-templater-dbt>=3.3.1",
+    "dbt-core>=1.12.5",
+    "dbt-duckdb>=1.11.0",
+    "dlt[duckdb]>=1.31.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.17.0",
+    "sqlfluff-templater-dbt>=4.4.0",
 ]

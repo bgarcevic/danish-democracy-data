@@ -1,6 +1,8 @@
+import argparse
+import logging
+
 import dlt
 from dlt.sources.rest_api import RESTAPIConfig, rest_api_resources
-import logging
 
 # Configure the logger for dlt
 # Create a logger and set handler
@@ -35,7 +37,9 @@ def danish_parliament_source():
                         "type": "incremental",
                         "cursor_path": "opdateringsdato",
                         "initial_value": "2014-01-01T00:00:00",
-                        "convert": lambda epoch: "opdateringsdato gt datetime'" + epoch + "'",
+                        "convert": lambda epoch: (
+                            "opdateringsdato gt datetime'" + epoch + "'"
+                        ),
                     },
                 },
                 "data_selector": "value",
@@ -67,16 +71,33 @@ def danish_parliament_source():
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--limit",
+        type=int,
+        help="Max pages to fetch per resource (for quick dev runs).",
+    )
+    parser.add_argument(
+        "--pipeline-name",
+        default="rest_api_danish_parliament",
+        help="Use a different name to keep dev runs out of the main state.",
+    )
+    args = parser.parse_args()
+
     pipeline = dlt.pipeline(
-        pipeline_name="rest_api_danish_parliament",
+        pipeline_name=args.pipeline_name,
         destination=dlt.destinations.duckdb("danish_democracy_data.duckdb"),
         dataset_name="danish_parliament",
     )
 
-    pipeline.run(danish_parliament_source())
+    source = danish_parliament_source()
+    if args.limit:
+        source.add_limit(args.limit)
+
+    load_info = pipeline.run(source)
     # Logging the load information
     logger.info("Pipeline run completed successfully")
-    logger.info(f"Last Trace: {pipeline.last_trace}")
+    logger.info(load_info)
 
 
 if __name__ == "__main__":

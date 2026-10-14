@@ -7,8 +7,8 @@ indent_unit = space
 exclude_rules = RF05
 
 [sqlfluff:templater:dbt]
-project_dir = ./dbt
-profiles_dir = ./dbt
+project_dir = .
+profiles_dir = .
 
 [sqlfluff:indentation]
 tab_space_size = 4

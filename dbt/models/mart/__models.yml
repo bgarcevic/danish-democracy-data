@@ -6,7 +6,7 @@ models:
     columns:
       - name: actor_sk
         description: The unique key for each member.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: dim_cases
@@ -14,7 +14,7 @@ models:
     columns:
       - name: case_sk
         description: The unique key for each case.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: dim_dates
@@ -22,7 +22,7 @@ models:
     columns:
       - name: date_sk
         description: The unique key for each date.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: dim_meetings
@@ -30,7 +30,7 @@ models:
     columns:
       - name: meeting_sk
         description: The unique key for each member.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: dim_votes
@@ -38,7 +38,7 @@ models:
     columns:
       - name: vote_sk
         description: The unique key for each individual_vote.
-        tests:
+        data_tests:
           - not_null
           - unique
   - name: fct_individual_votes
@@ -46,6 +46,6 @@ models:
     columns:
       - name: individual_vote_sk
         description: The unique key for each individual_vote.
-        tests:
+        data_tests:
           - not_null
           - unique

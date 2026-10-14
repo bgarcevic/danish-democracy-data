@@ -7,7 +7,9 @@ dates as (
 holidays as (
     select * from {{ ref('stg_dates_holidays') }}
     -- remove one random of the overlapping holiday as we only want one of them
-    qualify row_number() over (partition by holiday_date order by holiday_type desc) = 1
+    qualify row_number() over (
+        partition by holiday_date order by holiday_type desc
+    ) = 1
 ),
 
 final as (
