@@ -33,14 +33,15 @@ def danish_parliament_source():
             "endpoint": {
                 "params": {
                     "$inlinecount": "allpages",
-                    "$filter": {
-                        "type": "incremental",
-                        "cursor_path": "opdateringsdato",
-                        "initial_value": "2014-01-01T00:00:00",
-                        "convert": lambda epoch: (
-                            "opdateringsdato gt datetime'" + epoch + "'"
-                        ),
-                    },
+                    # "ge" re-fetches rows on the boundary timestamp; dlt
+                    # deduplicates them using the primary key
+                    "$filter": (
+                        "opdateringsdato ge datetime'{incremental.start_value}'"
+                    ),
+                },
+                "incremental": {
+                    "cursor_path": "opdateringsdato",
+                    "initial_value": "2014-01-01T00:00:00",
                 },
                 "data_selector": "value",
             },
