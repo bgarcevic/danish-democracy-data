@@ -3,7 +3,7 @@
 This repo is a personal hobby project using open source alternatives to create a data warehouse for the data of the Danish parliament.
 The API used is the open API from [Folketinget API](https://oda.ft.dk/Home/WebApi) as the primary source of data.
 
-Stack: [dlt](https://dlthub.com/) for extraction, [DuckDB](https://duckdb.org/) as the warehouse and [dbt](https://docs.getdbt.com/) for transformations.
+Stack: [dlt](https://dlthub.com/) for extraction, [DuckDB](https://duckdb.org/) as the warehouse and [dbt v2](https://docs.getdbt.com/) for transformations.
 
 ## Setup
 
@@ -58,8 +58,9 @@ The DuckDB file is created in the project root as `danish_democracy_data.duckdb`
 ## Development tools
 
 * Python formatting/linting: `uv run ruff check` and `uv run ruff format`
-* SQL linting (run from `dbt/`): `uv run sqlfluff lint models`
-* Editor add-in: `dbt Power User`
+* SQL linting (run from `dbt/`): `uv run dbt lint` (add `--fix` to apply fixes). Rules are configured in `dbt/.sqlfluff`.
+* SQL formatting (run from `dbt/`): `uv run dbt format`
+* Editor add-in: [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension)
 
 ## Export the data to parquet
 
